@@ -1,0 +1,223 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="homelayout :: head"></head>
+<body>
+	<div th:replace="homelayout :: header"></div>
+	<div th:replace="homelayout :: modal"></div>
+	<!--Content-->
+	<main class="container">
+        <!--./ code here -->
+
+        <!--Grid row-->
+        <div class="row mt-4">
+
+            <!--Grid column-->
+            <div class="col-md-12">
+                <h2 class="text-center font-bold">My Account</h2>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#panel2" role="tab">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#panel3" role="tab">Classes</a>
+                    </li>
+                </ul>
+                <!-- Tab panels -->
+                <div class="tab-content card">
+                    <!--Panel 1-->
+                    <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
+                        <br/>
+                        <div class="row">
+                            <div class="col-md-6 mb-r">
+                                <!--Card-->
+                                <div class="card testimonial-card">
+
+                                    <!--Bacground color-->
+                                    <div class="card-up aqua-gradient">
+                                    </div>
+
+                                    <!--Avatar-->
+                                    <div class="avatar"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg" class="rounded-circle img-responsive"/>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <!--Name-->
+                                        <h4 class="card-title">Your name</h4>
+                                        <hr/>
+
+
+                                        <form action="#">
+                                            <div class="file-field">
+                                                <div class="btn btn-primary btn-sm waves-effect waves-light">
+                                                    <span>Choose files</span>
+                                                    <input type="file"/>
+                                                </div>
+                                                <div class="file-path-wrapper">
+                                                    <input class="file-path validate valid" type="text" placeholder="Upload avatar image"/>
+                                                </div>
+                                            </div>
+                                        </form>
+
+
+                                    </div>
+
+                                </div>
+                                <!--/.Card-->
+
+                            </div>
+
+                            <div class="col-md-6 mb-r">
+                                <!--Email validation-->
+                                <div class="md-form">
+                                    <i class="fa fa-envelope prefix"></i>
+                                    <input type="email" id="form9" class="form-control validate" disabled="disabled" />
+                                    <label for="form9" data-error="wrong" data-success="right" class="">MaND</label>
+                                </div>
+                                <div class="md-form">
+                                    <i class="fa fa-envelope prefix"></i>
+                                    <input type="email" id="form9" class="form-control validate"/>
+                                    <label for="form9" data-error="wrong" data-success="right" class="">Type your first name</label>
+                                </div>
+                                <div class="md-form">
+                                    <i class="fa fa-envelope prefix"></i>
+                                    <input type="email" id="form9" class="form-control validate"/>
+                                    <label for="form9" data-error="wrong" data-success="right" class="">Type your last name</label>
+                                </div>
+                                <div class="switch">
+                                    <label>
+                                        Nam
+                                        <input type="checkbox" checked="checked"/>
+                                        <span class="lever"></span> Nữ
+                                    </label>
+                                </div>
+                                <div class="md-form">
+                                    <i class="fa fa-envelope prefix"></i>
+                                    <input type="email" id="form9" class="form-control validate"/>
+                                    <label for="form9" data-error="wrong" data-success="right" class="">Type your address</label>
+                                </div>
+                                <div class="md-form">
+                                    <i class="fa fa-envelope prefix"></i>
+                                    <input type="email" id="form9" class="form-control validate"/>
+                                    <label for="form9" data-error="wrong" data-success="right" class="">Type your CMND</label>
+                                </div>
+                                <div class="md-form">
+                                    <i class="fa fa-envelope prefix"></i>
+                                    <input type="email" id="form9" class="form-control validate"/>
+                                    <label for="form9" data-error="wrong" data-success="right" class="">Type your email</label>
+                                </div>
+                                <div class="md-form">
+                                    <i class="fa fa-pencil prefix"></i>
+                                    <input type="email" id="form9" class="form-control validate"/>
+                                    <label for="form9" data-error="wrong" data-success="right" class="">Type your description</label>
+                                </div>
+                                <div class="input-group date">
+                                    <input type="text" class="form-control" id="datepicker" placeholder="Birthday: DD/MM/YYYY"/>
+                                </div>
+
+
+                                <!--<fieldset class="form-group">-->
+                                <!--    <input name="group1" type="radio" id="radio1" checked="checked">-->
+                                <!--    <label for="radio1">Option 1</label>-->
+                                <!--</fieldset>-->
+                                <!--<fieldset class="form-group">-->
+                                <!--    <input name="group1" type="radio" id="radio2">-->
+                                <!--    <label for="radio2">Option 2</label>-->
+                                <!--</fieldset>-->
+                                <!--<fieldset class="form-group">-->
+                                <!--    <input name="group1" type="radio" id="radio3">-->
+                                <!--    <label for="radio3">Option 3</label>-->
+                                <!--</fieldset>-->
+                                <input class="btn btn-default" type="submit" value="Save" />
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.Panel 1-->
+                    <!--Panel 2-->
+                    <div class="tab-pane fade" id="panel2" role="tabpanel">
+                        <br/>
+
+                            <h1 class="h1-responsive">Courses</h1>
+                            <div class="row courselist">
+                                <!--Image column-->
+                                <div class="col-sm-2 col-12">
+                                    <img class="img-fluid z-depth-2" src="https://i2.wp.com/wp-education.xoothemes.com/wp-content/uploads/2016/11/php.png?resize=340%2C340"/>
+                                </div>
+                                <!--/.Image column-->
+                                <!--Content column-->
+                                <div class="col-sm-10 col-12">
+                                    <a>
+                                        <h3 class="user-name">Name Course</h3>
+                                    </a>
+                                    <div class="nd">
+                                        <ul class="list-unstyled">
+                                            <li class="comment-date"><i class="fa fa-clock-o"></i> 17/10/2015</li>
+                                        </ul>
+                                        <!--Review-->
+                                        <div class="orange-text">
+                                            <i class="fa fa-star"> </i>
+                                            <i class="fa fa-star"> </i>
+                                            <i class="fa fa-star"> </i>
+                                            <i class="fa fa-star"> </i>
+                                            <i class="fa fa-star-half-full"> </i>
+                                        </div>
+                                    </div>
+                                    <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt
+                                        in culpa qui officia.
+                                    </p>
+                                </div>
+                                <!--/.Content column-->
+                            </div>
+                            <div class="row courselist">
+                                <!--Image column-->
+                                <div class="col-sm-2 ">
+                                    <img class="img-fluid z-depth-2" src="https://i2.wp.com/wp-education.xoothemes.com/wp-content/uploads/2016/11/php.png?resize=340%2C340"/>
+                                </div>
+                                <!--/.Image column-->
+                                <!--Content column-->
+                                <div class="col-sm-10 ">
+                                    <a>
+                                        <h3 class="user-name">Name Course</h3>
+                                    </a>
+                                    <div class="nd">
+                                        <ul class="list-unstyled">
+                                            <li class="comment-date"><i class="fa fa-clock-o"></i> 17/10/2015</li>
+                                        </ul>
+                                        <!--Review-->
+                                        <div class="orange-text">
+                                            <i class="fa fa-star"> </i>
+                                            <i class="fa fa-star"> </i>
+                                            <i class="fa fa-star"> </i>
+                                            <i class="fa fa-star"> </i>
+                                            <i class="fa fa-star-half-full"> </i>
+                                        </div>
+                                    </div>
+                                    <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt
+                                        in culpa qui officia.
+                                    </p>
+                                </div>
+                                <!--/.Content column-->
+                            </div>
+
+                    </div>
+                    <!--/.Panel 2-->
+                    <!--Panel 3-->
+                    <div class="tab-pane fade" id="panel3" role="tabpanel">
+                        <br/>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
+                    </div>
+                    <!--/.Panel 3-->
+                </div>
+
+            </div>
+            <!--Grid column-->
+        </div>
+
+        <!--./ code here -->
+    </main>
+	<!--/.Content-->
+	<footer th:replace="homelayout :: footer"></footer>
+</body>
+</html>

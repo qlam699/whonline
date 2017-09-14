@@ -1,0 +1,164 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="homelayout :: head"></head>
+<body>
+	<div th:replace="homelayout :: header"></div>
+	<div th:replace="homelayout :: modal"></div>
+	<div th:replace="homelayout :: modalfull"></div>
+	<!--Content-->
+	<main class="container" style="min-height:500px">
+        <!--./ code here -->
+        <ol class="breadcrumb mt-2">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Library</a></li>
+            <li class="breadcrumb-item active">Data</li>
+        </ol>
+        <section id="detailc">
+            <div class="card" id="topdetail">
+                <div class="card-body">
+                    <div class="ep-single-course-header clearfix">
+
+                        <h1 class="course-title entry-title">Basic PHP</h1>
+                        <div class="course-meta pull-left row">
+                            <div class="course-author col" itemscope="" itemtype="http://schema.org/Person">
+                                <img src="http://wp-education.xoothemes.com/wp-content/uploads/learn-press-profile/1/8d33e3c0ef99551c6376d0f66b51bbf6.png" width="40" height="40" alt="" class="avatar avatar-40 wp-user-avatar wp-user-avatar-40 photo avatar-default"/>
+                                <div class="author-contain">
+                                    <label itemprop="jobTitle">Teacher</label>
+                                    <div class="value" itemprop="name">
+                                        <a href="http://wp-education.xoothemes.com/profile/xoothemes/">XooThemes</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course-categories col">
+                                <label>Categories</label>
+                                <div class="value">
+                                    <span class="cat-links">
+							<a href="http://wp-education.xoothemes.com/course-category/php/">PHP</a>						</span>
+                                </div>
+                            </div>
+                            <div class="course-review col">
+                                <label>Review</label>
+
+                                <!--Review-->
+                                <div class="orange-text">
+                                    <i class="fa fa-star"> </i>
+                                    <i class="fa fa-star"> </i>
+                                    <i class="fa fa-star"> </i>
+                                    <i class="fa fa-star"> </i>
+                                    <i class="fa fa-star-half-full"> </i>
+                                </div>
+                            </div>
+                            <div class="learn-press-course-results-progress col">
+                                <div class="items-progress">
+                                    <h4 class="lp-course-progress-heading">Items completed</h4>
+                                    <span class="number">2 of 17 items</span>
+                                    <div class="my-2 progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="col">
+                                <img class="img-fluid" src="https://i2.wp.com/wp-education.xoothemes.com/wp-content/uploads/2016/11/php.png?w=870" alt="Card image cap"/>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--Grid row-->
+            <div class="row mt-3" id="maindetail">
+
+                <!--Grid column-->
+                <div class="col mb-r">
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs nav-justified">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab">Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#panel2" role="tab">curriculum</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#panel3" role="tab">Review</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#panel4" role="tab">instructor</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panels -->
+                    <div class="tab-content card">
+                        <!--Panel 1-->
+                        <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
+                            <br/>
+                            <div class="row">
+
+                                <div class="ep-course-content col-md-8">
+
+                                    <h2 class="course-description-heading" id="learn-press-course-description-heading">Course Overview</h2>
+
+
+                                    <div class="course-description" id="learn-press-course-description">
+
+
+                                        <p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of
+                                            type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                                            the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                        <p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of
+                                            type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                                            the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+
+                                    </div>
+                                </div>
+                                <div class="ep-course-info col-md-4">
+                                    <h3>Course Features</h3>
+                                    <ul>
+                                        <li><i class="fa fa-files-o" aria-hidden="true"></i><span class="course-info-label">Lectures</span><span class="course-info-value">17</span></li>
+                                        <li><i class="fa fa-puzzle-piece" aria-hidden="true"></i><span class="course-info-label">Quizzes</span><span class="course-info-value">0</span></li>
+                                        <li><i class="fa fa-clock-o" aria-hidden="true"></i><span class="course-info-label">Duration</span><span class="course-info-value">10 week</span></li>
+                                        <li><i class="fa fa-level-up" aria-hidden="true"></i><span class="course-info-label">Skill level</span><span class="course-info-value">all</span></li>
+                                        <li><i class="fa fa-language" aria-hidden="true"></i><span class="course-info-label">Language</span><span class="course-info-value">English</span></li>
+                                        <li><i class="fa fa-undo" aria-hidden="true"></i><span class="course-info-label">Re-take course</span><span class="course-info-value">N/A</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.Panel 1-->
+                        <!--Panel 2-->
+                        <div class="tab-pane fade" id="panel2" role="tabpanel">
+                            <br/>
+                            <button type="button" class="btn btn-xs btn-success btnchap" data-toggle="modal" data-target="#myModalFullscreen">
+		<span class="glyphicon glyphicon-fullscreen"></span>
+		<span>See it in action</span>
+	</button>
+                        </div>
+                        <!--/.Panel 2-->
+                        <!--Panel 3-->
+                        <div class="tab-pane fade" id="panel3" role="tabpanel">
+                            <br/>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit
+                                minima.
+                            </p>
+                        </div>
+                        <!--/.Panel 3-->
+                        <div class="tab-pane fade" id="panel4" role="tabpanel">
+                            <br/>
+                            <p>44 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit
+                                minima.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <!--Grid column-->
+            </div>
+        </section>
+
+        <!--./ code here -->
+    </main>
+	<!--/.Content-->
+	<footer th:replace="homelayout :: footer"></footer>
+</body>
+</html>
