@@ -16,14 +16,12 @@
 <link href="css/bootstrap-datepicker.standalone.min.css"
 	rel="stylesheet" />
 </head>
-
-
 <body>
 	<header id="header" th:fragment="header">
 		<!--Navbar -->
 		<nav
 			class="mb-1 navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
-			<a class="navbar-brand" href="#">Navbar</a>
+			<a class="navbar-brand" href="/">Study Online</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent-4"
 				aria-controls="navbarSupportedContent-4" aria-expanded="false"
@@ -31,32 +29,29 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent-4">
-				<ul class="navbar-nav ml-auto">
+				<ul class="navbar-nav ml-auto">					
 					<li class="nav-item active"><a
-						class="nav-link waves-effect waves-light" href="#"><i
-							class="fa fa-envelope"></i>Home<span class="sr-only">(current)</span></a>
-					</li>
+						class="nav-link waves-effect waves-light" href="courses"><i
+							class="fa fa-graduation-cap"></i> Courses</a></li>
 					<li class="nav-item"><a
-						class="nav-link waves-effect waves-light" href="#"><i
-							class="fa fa-gear"></i> Courses</a></li>
+						class="nav-link waves-effect waves-light" href="teachers"><i
+							class="fa fa-user-circle"></i> Teachers</a></li>
 					<li class="nav-item"><a
-						class="nav-link waves-effect waves-light" href="#"><i
-							class="fa fa-gear"></i> Teachers</a></li>
-					<li class="nav-item"><a
-						class="nav-link waves-effect waves-light" href="#"><i
-							class="fa fa-gear"></i> Contact</a></li>
+						class="nav-link waves-effect waves-light" href="contact"><i
+							class="fa fa-envelope"></i> Contact</a></li>
 					<li class="nav-item"><a
 						class="nav-link waves-effect waves-light" href="#"><i
 							class="fa fa-gear"></i>Term</a></li>
 					<li class="nav-item"><a class="nav-link" data-toggle="modal"
-						data-target="#mymodal" href="loginregister">Login</a></li>
+						data-target=".modal" href="loginregister"><i
+							class="fa fa-lock"></i>Login</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
 							class="fa fa-user"></i> Profile </a>
 						<div class="dropdown-menu dropdown-menu-right dropdown-cyan"
 							aria-labelledby="navbarDropdownMenuLink-4">
-							<a class="dropdown-item" href="#">My account</a> <a
+							<a class="dropdown-item" href="myaccount">My account</a> <a
 								class="dropdown-item" href="#">Log out</a>
 						</div></li>
 				</ul>
@@ -65,7 +60,7 @@
 		<!--/.Navbar -->
 
 		<!-- Intro Section -->
-		<div class="view jarallax"
+		<div class="view jarallax welshort"
 			style="background-image: url(img/homefeature.jpg);">
 			<div class="full-bg-img">
 				<div class="container flex-center">
@@ -95,7 +90,7 @@
 								</form>
 								<a class="btn teal accent-4 btn-lg wow fadeInDown"
 									data-wow-delay="0.7s" data-toggle="modal" href="loginregister"
-									data-target="#mymodal">Register and Log in</a>
+									data-target=".modal">Register and Log in</a>
 							</div>
 						</div>
 					</div>
@@ -117,158 +112,7 @@
 		</div>
 	</div>
 	<!--Modal: Login / Register Form Demo-->
-	<div th:fragment="modalfull" class="modal fade modal-fullscreen" id="modalfullscreen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="col">
-                        <a id="menu-toggle" href="#" class="glyphicon glyphicon-align-justify btn-menu toggle">
-                        <h4 class="d-inline modal-title font-bold" id="myModalLabel"><i class="fa fa-bars" aria-hidden="true" ></i> Course title</h4>
-                    </a>
-                    </div>
-                    <div id="chap">
-                        <a class="btn-responsive toolbarchap btn-floating btn-sm purple-gradient"><i class="fa fa-chevron-left"></i></a>
-                        <a class="btn-responsive btn-floating peach-gradient" data-dismiss="modal"><i class="fa fa-reply" aria-hidden="true"></i></a>
-                        <a class="btn-responsive toolbarchap btn-floating btn-sm purple-gradient"><i class="fa fa-chevron-right"></i></a>
-                    </div>
-                   <div id="chapmobile">
-                        <a class="toolbarchap btn-sm purple-gradient"><i class="fa fa-chevron-left"></i></a>
-                        <a class="btn-sm peach-gradient" data-dismiss="modal"><i class="fa fa-reply" aria-hidden="true"></i></a>
-                        <a class="toolbarchap btn-sm purple-gradient"><i class="fa fa-chevron-right"></i></a>
-                    </div>                 
-                </div>
-                <div class="modal-body">
-                    <div id="wrapper">
-                        <!-- Sidebar -->
-                        <div id="sidebar-wrapper">
-                             <!--Accordion wrapper-->
-                        <div class="accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
-                            <!-- Accordion card -->
-                            <div class="card">
-
-                                <!-- Card header -->
-                                <div class="card-header" role="tab" id="headingOne">
-                                    <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        <h5 class="mb-0">
-                                            Collapsible Group Item #1 <i class="fa fa-angle-down rotate-icon"></i>
-                                        </h5>
-                                    </a>
-                                </div>
-
-                                <!-- Card body -->
-                                <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-                                    <div class="card-body">
-                                       <ul class="nav nav-pills flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">Overview <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">QL Tài khoản</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">QL Khóa học</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">QL Nhân sự</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">QL Thông báo</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">QL File</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">QL Bình luận</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Export</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Export</a>
-                            </li>
-                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Accordion card -->
-
-                            <!-- Accordion card -->
-                            <div class="card">
-
-                                <!-- Card header -->
-                                <div class="card-header" role="tab" id="headingTwo">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        <h5 class="mb-0">
-                                            Collapsible Group Item #2 <i class="fa fa-angle-down rotate-icon"></i>
-                                        </h5>
-                                    </a>
-                                </div>
-
-                                <!-- Card body -->
-                                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                    <div class="card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                                        on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
-                                        craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Accordion card -->
-
-                            <!-- Accordion card -->
-                            <div class="card">
-
-                                <!-- Card header -->
-                                <div class="card-header" role="tab" id="headingThree">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        <h5 class="mb-0">
-                                            Collapsible Group Item #3 <i class="fa fa-angle-down rotate-icon"></i>
-                                        </h5>
-                                    </a>
-                                </div>
-
-                                <!-- Card body -->
-                                <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
-                                    <div class="card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                                        on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
-                                        craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Accordion card -->
-                        </div>
-                        <!--/.Accordion wrapper-->
-                        </div>
-
-                        <!-- Page content -->
-                        <div id="page-content-wrapper">
-
-                            <h1 id="home">
-                                Sidebar Navigation Template
-                            </h1>
-
-
-                            <div class="page-content inset" data-spy="scroll" data-target="#spy">
-                            <p>
-                            ic typesetting, remaining essent
-                             <iframe width="560" height="315" src="https://www.youtube.com/embed/oSOy_nH1LtY" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-                                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                                    of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </p>
-                               
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
+	
 	<!--Footer-->
 	<footer th:fragment="footer"
 		class="page-footer center-on-small-only default-color">
@@ -360,16 +204,19 @@
 		</script>
 		<script>
 			//lay link qua href cua the btn
-			$("#mymodal").on("show.bs.modal", function(e) {
-
-				var link = $(e.relatedTarget);
-				$(this).find(".modal-content").load(link.attr("href"));
-
+			$(".modal").on("show.bs.modal", function(e) {
+				$('body').css('overflow', 'hidden');
+					var link = $(e.relatedTarget);
+					$(this).find(".modal-content").load(link.attr("href"));
 			});
 			//Reset modal box
-			$("#mymodal").on("hide.bs.modal", function() {
-				$("#myModal.modal-content").html("");
+			$(".modal").on("hide.bs.modal", function() {
+				$('body').css('overflow', '');
+				$(".modal").attr("id","mymodal");
+				$(".modal-dialog").addClass("cascading-modal"); //modal login
+				$(this).find(".modal-content").html("");
 			});
+			
 			// Material Select Initialization
 			$(document).ready(function() {
 				$('.mdb-select').material_select();

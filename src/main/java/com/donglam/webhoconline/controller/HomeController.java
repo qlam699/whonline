@@ -17,6 +17,11 @@ public class HomeController {
 	public String login(Model model) {
 		return "loginregister";
 	}
+	//modal post
+		@GetMapping("/detailpost")
+		public String detailpost(Model model) {
+			return "detailpost";
+		}
 	// some other pages
 	@GetMapping("/contact")
 	public String contact(Model model) {
@@ -25,6 +30,10 @@ public class HomeController {
 	@GetMapping("/courses")
 	public String courses(Model model) {
 		return "courses";
+	}
+	@GetMapping("/teachers")
+	public String teachers(Model model) {
+		return "teachers";
 	}
 	@GetMapping("/myaccount")
 	public String myaccount(Model model) {

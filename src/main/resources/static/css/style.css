@@ -364,6 +364,6 @@
     position: relative;
 }
 /* fix thymeleaf */
-.card .card-circle, .card-overlay, .flex-center, .section.team-section .avatar, .testimonial-carousel .testimonial .avatar{
+.card .card-circle, .card-overlay, .section.team-section .avatar, .testimonial-carousel .testimonial .avatar{
 	height:auto !important;
 }
