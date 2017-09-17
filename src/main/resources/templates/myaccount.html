@@ -219,5 +219,11 @@
     </main>
 	<!--/.Content-->
 	<footer th:replace="homelayout :: footer"></footer>
+	<script type="text/javascript" src="js/bootstrap-datepicker.min.js"></script>
+	<script>
+	$('#datepicker').datepicker({
+		format : "dd/mm/yyyy"
+	});
+	</script>
 </body>
 </html>
