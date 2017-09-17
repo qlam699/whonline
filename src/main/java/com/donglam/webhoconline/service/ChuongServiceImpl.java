@@ -7,23 +7,23 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.donglam.webhoconline.dao.GenericDao;
-import com.donglam.webhoconline.dao.KhoaDao;
-import com.donglam.webhoconline.model.Khoa;
+import com.donglam.webhoconline.dao.ChuongDao;
+import com.donglam.webhoconline.model.Chuong;
 
-public class KhoaServiceImpl extends GenericServiceImpl<Khoa, String> implements KhoaService {
+public class ChuongServiceImpl extends GenericServiceImpl<Chuong, String> implements ChuongService {
 	@Autowired
-	private KhoaDao dao;
+	private ChuongDao dao;
 
 	@Autowired
-	public KhoaServiceImpl(GenericDao<Khoa, String> genericDao) {
+	public ChuongServiceImpl(GenericDao<Chuong, String> genericDao) {
 		super(genericDao);
-		this.dao = (KhoaDao) genericDao;
+		this.dao = (ChuongDao) genericDao;
 	}
 
 	// custom method
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, readOnly = true)
-	public List<Khoa> getListByName(String ten) {
+	public List<Chuong> getListByName(String ten) {
 		return dao.getListByName(ten);
 	}
 }

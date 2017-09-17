@@ -39,10 +39,6 @@ public class HomeController {
 	public String contact(Model model) {
 		return "contact";
 	}
-	@GetMapping("/courses")
-	public String courses(Model model) {
-		return "courses";
-	}
 	@GetMapping("/teachers")
 	public String teachers(Model model) {
 		return "teachers";

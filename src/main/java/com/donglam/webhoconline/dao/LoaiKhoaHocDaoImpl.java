@@ -10,13 +10,11 @@ import com.donglam.webhoconline.model.LoaiKhoaHoc;
 @SuppressWarnings("unchecked")
 @Repository
 public class LoaiKhoaHocDaoImpl extends GenericDaoImpl<LoaiKhoaHoc, Integer> implements LoaiKhoaHocDao {
-	//custom method
+	// custom method
 	@Override
-    public List<LoaiKhoaHoc> getListByName(String ten) 
-    {
-    	Query query = currentSession().createQuery(
-                "from loaikhoahoc where loaikhoahoc.tenloaikh =: tenloaikh");
-    	query.setParameter("tenloaikh", ten);
-        return currentSession().createCriteria(daoType).list();
-    }
+	public List<LoaiKhoaHoc> getListByName(String ten) {
+		Query query = currentSession().createQuery("from loaikhoahoc where loaikhoahoc.tenloaikh =: tenloaikh");
+		query.setParameter("tenloaikh", ten);
+		return currentSession().createCriteria(daoType).list();
+	}
 }

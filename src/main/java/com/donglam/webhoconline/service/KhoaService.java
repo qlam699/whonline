@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.donglam.webhoconline.model.Khoa;
 
-public interface KhoaService extends GenericService<Khoa,String>{
-	
-	//custom method
+public interface KhoaService extends GenericService<Khoa, String> {
+
+	// custom method
 	public List<Khoa> getListByName(String ten);
 }

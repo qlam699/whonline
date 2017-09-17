@@ -1,0 +1,126 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="adlayout :: head"></head>
+<body>
+	<div th:replace="adlayout :: header"></div>
+	<!--Content-->
+	<main class="container-fluid" id="mainad"> <!--./ code here -->
+	<div class="modal-content">
+		<div class="modal-body" style="margin-top: 54px">
+			<div id="wrapper">
+				<div th:replace="adlayout :: sidebar"></div>
+				<div id="page-content-wrapper">
+                        <h1 id="home" class="text-center font-bold mt-1">
+                            Quản lý tài khoản
+                        </h1>
+                        <!--Grid column-->
+                        <div class="mb-r">
+
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs nav-justified" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#panel5" role="tab"><i class="fa fa-user"></i> Tài khoản</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#panel6" role="tab"><i class="fa fa-heart"></i> Quyền</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#panel7" role="tab"><i class="fa fa-envelope"></i> Mail</a>
+                                </li>
+                            </ul>
+                            <!-- Tab panels -->
+                            <div class="tab-content">
+                                <!--Panel 1-->
+                                <div class="tab-pane fade in show active" id="panel5" role="tabpanel">
+                                    <br/>
+                                    <button class="btn btn-primary" id="btnrow">Rows</button>
+                                    <table width="100%" cellspacing="0" class="table table-hover responsive nowrap" id="tbtk">
+                                        <thead>
+                                            <tr>
+                                                <th class="rgba-teal-strong">Mã ND</th>
+                                                <th class="rgba-teal-strong">Họ tên</th>
+                                                <th class="rgba-teal-strong">Phái</th>
+                                                <th class="rgba-teal-strong">Ngày sinh</th>
+                                                <th class="rgba-teal-strong">Địa chỉ</th>
+                                                <th class="rgba-teal-strong">CMND</th>
+                                                <th class="rgba-teal-strong">Username</th>
+                                                <th class="rgba-teal-strong">Password</th>
+                                                <th class="rgba-teal-strong">Avatar</th>
+                                                <th class="rgba-teal-strong">Mô tả</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="odd gradeX">
+                                                <td>Trident</td>
+                                                <td>Internet Explorer 4.0</td>
+                                                <td>Win 95+</td>
+                                                <td class="center">4</td>
+                                                <td class="center">X</td>
+                                                <td>Trident</td>
+                                                <td>Internet Explorer 4.0</td>
+                                                <td>Win 95+</td>
+                                                <td class="center">4</td>
+                                                <td class="center">X</td>
+                                            </tr>
+                                            <tr class="odd gradeX">
+                                                <td>Trident</td>
+                                                <td>Internet Explorer 4.0</td>
+                                                <td>Win 95+</td>
+                                                <td class="center">4</td>
+                                                <td class="center">X</td>
+                                                <td>Trident</td>
+                                                <td>Internet Explorer 4.0</td>
+                                                <td>Win 95+</td>
+                                                <td class="center">4</td>
+                                                <td class="center">X</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!--/.Panel 1-->
+                                <!--Panel 2-->
+                                <div class="tab-pane fade" id="panel6" role="tabpanel">
+                                    <br/>
+                                    <button class="btn btn-primary" id="btnrow">Rows</button>
+                                    <table width="100%" cellspacing="0" class="table table-hover responsive nowrap" id="tbquyen">
+                                        <thead>
+                                            <tr>
+                                                <th class="rgba-teal-strong">Mã quyền</th>
+                                                <th class="rgba-teal-strong">Tên quyền</th>
+                                                <th class="rgba-teal-strong">Mã ND</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="odd gradeX">
+                                                <td>Trident</td>
+                                                <td>Internet Explorer 4.0</td>
+                                                <td>Win 95+</td>
+                                            </tr>
+                                            <tr class="odd gradeX">
+                                                <td>Trident</td>
+                                                <td>Internet Explorer 4.0</td>
+                                                <td>Win 95+</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!--/.Panel 2-->
+                                <!--Panel 3-->
+                                <div class="tab-pane fade" id="panel7" role="tabpanel">
+                                    <br/>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate
+                                        odit minima.</p>
+                                </div>
+                                <!--/.Panel 3-->
+                            </div>
+
+                        </div>
+                        <!--Grid column-->
+                    </div>
+			</div>
+		</div>
+	</div>
+	</main>
+	<footer th:replace="adlayout :: footer"></footer>
+
+</body>
+</html>

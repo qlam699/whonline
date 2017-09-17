@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+<meta charset="utf-8"/>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+<meta http-equiv="x-ua-compatible" content="ie=edge"/>
+<title>Website học trực tuyến</title>
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="css/font-awesome.min.css"/>
+
+<!-- Material Design Bootstrap -->
+<link href="css/compiled.min.css" rel="stylesheet"/>
+<!-- DataTables CSS -->
+<!--<link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">-->
+<link
+	href="css/jquery.dataTables.min.css"
+	rel="stylesheet"/>
+<link
+	href="css/buttons.dataTables.min.css"
+	rel="stylesheet"/>
+<link
+	href="css/editor.dataTables.min.css"
+	rel="stylesheet"/>
+
+<!-- DataTables Responsive CSS -->
+<link
+	href="css/dataTables.responsive.css"
+	rel="stylesheet"/>
+<!-- Custom CSS -->
+<link
+	href="css/sb-admin-2.css"
+	rel="stylesheet"/>
+
+<link href="css/style.css" rel="stylesheet"/>
+
+<link href="css/bootstrap-datepicker.standalone.min.css"
+	rel="stylesheet"/>
+	
+	<link rel="stylesheet"
+		href="css/jquery-jvectormap-2.0.3.css"
+		type="text/css" media="screen" />
+		
+<style type="text/css">
+select {
+	display: inline-block !important;
+}
+</style>
+</head>
+<body>
+	<header th:fragment="header" id="header">
+		<!--Navbar -->
+		<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-indigo">
+			<a id="menu-toggle" class="navbar-brand" href="#"><i
+				class="fa fa-list-ul" aria-hidden="true"></i> Admin Manager</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent-4"
+				aria-controls="navbarSupportedContent-4" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a class="nav-link" href="#"><i
+							class="fa fa-envelope"></i> Contact <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="#"><i
+							class="fa fa-gear"></i> Settings</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+							class="fa fa-user"></i> Profile </a>
+						<div class="dropdown-menu dropdown-menu-right dropdown-info"
+							aria-labelledby="navbarDropdownMenuLink-4">
+							<a class="dropdown-item" href="#">My account</a> <a
+								class="dropdown-item" href="#">Log out</a>
+						</div></li>
+				</ul>
+			</div>
+		</nav>
+		<!--/.Navbar -->
+	</header>
+
+	<!--Content-->
+	<main class="container-fluid" id="mainad"> <!--./ code here -->
+
+	<div class="modal-content">
+
+		<div class="modal-body" style="margin-top: 54px">
+			<div id="wrapper">
+
+				<div th:fragment="sidebar" id="sidebar-wrapper">
+
+					<ul class="nav nav-pills flex-column">
+						<li class="nav-item"><a class="nav-link active" href="#"><i
+								class="fa fa-mortar-board"></i> Tổng quan <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="#"><i
+								class="fa fa-user-o"></i> QL Tài khoản</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"><i
+								class="fa fa-address-book-o"></i> QL Khóa học</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"><i
+								class="fa fa-address-book-o"></i> QL Bài học</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"><i
+								class="fa fa-briefcase"></i> QL Bài thi</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"><i
+								class="fa fa-send-o"></i> QL Tin nhắn</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"><i
+								class="fa fa-file-word-o"></i> QL File</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"><i
+								class="fa fa-users"></i> QL Thảo luận</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">Export</a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="#">Export</a>
+						</li>
+					</ul>
+
+
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+	<!--./ code here --> </main>
+	<!--/.Content-->
+
+	<footer th:fragment="footer">
+	
+	<!-- SCRIPTS -->
+	<!-- JQuery -->
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+
+	<!-- Bootstrap dropdown -->
+	<script type="text/javascript" src="js/popper.min.js"></script>
+	<script type="text/javascript" src="js/compiled.min.js"></script>
+
+	<!-- DataTables JavaScript -->
+	<script
+		src="js/jquery.dataTables.min.js"></script>
+	<script
+		src="js/dataTables.buttons.min.js"></script>
+	<script
+		src="js/buttons.colVis.min.js"></script>
+	<script
+		src="js/dataTables.select.min.js"></script>
+
+	<script
+		src="js/dataTables.editor.min.js"></script>
+
+	<!--<script src="https://cdn.datatables.net/buttons/1.4.0/js/buttons.flash.min.js"></script>-->
+
+	<!--<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js"></script>-->
+	<script
+		src="js/dataTables.responsive.min.js"></script>
+	<!--<script src="https://cdn.datatables.net/responsive/2.1.1/js/responsive.bootstrap4.min.js"></script>-->
+	<script type="text/javascript" src="js/bootstrap-datepicker.min.js"></script>
+
+	<script>
+		new WOW().init();
+	</script>
+	<script>
+		// Material Select Initialization
+		var editor;
+		$(document).ready(
+				function() {
+					$('.mdb-select').material_select();
+					$('#datepicker').datepicker({
+						format : "dd/mm/yyyy"
+					});
+					// SideNav Initialization
+					$(".button-collapse").sideNav();
+					/*Menu-toggle*/
+					$("#menu-toggle").click(function(e) {
+						e.preventDefault();
+						$("#wrapper").toggleClass("active");
+					});
+					//Table
+					var table = $('table').DataTable(
+							{
+								dom : 'Bfrtip',
+								select : {
+									style : 'multi'
+								},
+								lengthMenu : [
+										[ 10, 25, 50, -1 ],
+										[ '10 rows', '25 rows', '50 rows',
+												'Show all' ] ],
+								// ajax: "../php/staff.php",
+								// columns: [{
+								//         data: null,
+								//         render: function(data, type, row) {
+								//             // Combine the first and last names into a single table field
+								//             return data.first_name + ' ' + data.last_name;
+								//         }
+								//     },
+								//     { data: "position" },
+								//     { data: "office" },
+								//     { data: "extn" },
+								//     { data: "start_date" },
+								//     { data: "salary", render: $.fn.dataTable.render.number(',', '.', 0, '$') }
+								// ],
+								buttons : [ 'pageLength', {
+									text : 'Select All',
+									className : '',
+									counter : true,
+									action : function(e, dt, node, config) {
+										if (config.counter) {
+											this.text('Select None');
+											table.rows({
+												page : 'current'
+											}).select();
+											config.counter = false;
+										} else {
+											this.text('Select All');
+											table.rows({
+												page : 'current'
+											}).deselect();
+											config.counter = true;
+										}
+
+									}
+								}, {
+									extend : 'colvis',
+									collectionLayout : 'fixed two-column'
+								} ]
+							});
+
+					//editor
+					editor = new $.fn.dataTable.Editor({
+						ajax : "../php/staff.php",
+						table : "table",
+						fields : [ {
+							label : "First name:",
+							name : "first_name"
+						}, {
+							label : "Last name:",
+							name : "last_name"
+						}, {
+							label : "Position:",
+							name : "position"
+						}, {
+							label : "Office:",
+							name : "office"
+						}, {
+							label : "Extension:",
+							name : "extn"
+						}, {
+							label : "Start date:",
+							name : "start_date",
+							type : "datetime"
+						}, {
+							label : "Salary:",
+							name : "salary"
+						} ]
+					});
+
+					$('table tbody').on('click', 'tr', function() {
+						$(this).toggleClass('selected');
+					});
+					//  $('#btnselectall').click(function() {
+
+					//             });
+					$('#btnrow').click(
+							function() {
+								alert(table.rows('.selected').data().length
+										+ ' row(s) selected');
+							});
+
+				});
+	</script>
+	<script>
+		/*Global settings*/
+		Chart.defaults.global.defaultFontColor = '#fff';
+
+		$(function() {
+			var data = {
+				labels : [ "January", "February", "March", "April", "May",
+						"June", "July" ],
+				datasets : [ {
+					label : "My First dataset",
+					fillColor : "rgba(220,220,220,0.2)",
+					strokeColor : "rgba(220,220,220,1)",
+					pointColor : "rgba(220,220,220,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(0,0,0,.15)",
+					data : [ 65, 59, 80, 81, 56, 55, 40 ],
+					backgroundColor : "#4CAF50"
+				}, {
+					label : "My Second dataset",
+					fillColor : "rgba(255,255,255,.25)",
+					strokeColor : "rgba(255,255,255,.75)",
+					pointColor : "#fff",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(0,0,0,.15)",
+					data : [ 28, 48, 40, 19, 86, 27, 90 ]
+				} ]
+			};
+
+			var dataPie = [ {
+				value : 300,
+				color : "#F7464A",
+				highlight : "#FF5A5E",
+				label : "Red"
+			}, {
+				value : 50,
+				color : "#46BFBD",
+				highlight : "#5AD3D1",
+				label : "Green"
+			}, {
+				value : 100,
+				color : "#FDB45C",
+				highlight : "#FFC870",
+				label : "Yellow"
+			} ]
+
+			var option = {
+				responsive : true,
+				// set font color
+				scaleFontColor : "#fff",
+				// font family
+				defaultFontFamily : "'Roboto', sans-serif",
+				// background grid lines color
+				scaleGridLineColor : "rgba(255,255,255,.1)",
+				// hide vertical lines
+				scaleShowVerticalLines : false,
+			};
+
+			//Get the context of the canvas element we want to select
+			// var ctx = document.getElementById("sales").getContext('2d');
+			// var myLineChart = new Chart(ctx).Line(data, option); //'Line' defines type of the chart.
+
+			// Get the context of the canvas element we want to select
+			// var ctx = document.getElementById("conversion").getContext('2d');
+			// var myRadarChart = new Chart(ctx).Radar(data, option);
+
+			//radar
+			var ctxR = document.getElementById("conversion").getContext('2d');
+			var myRadarChart = new Chart(ctxR, {
+				type : 'radar',
+				data : {
+					labels : [ "Eating", "Drinking", "Sleeping", "Designing",
+							"Coding", "Cycling", "Running" ],
+					datasets : [ {
+						label : "My First dataset",
+						fillColor : "rgba(220,220,220,0.2)",
+						strokeColor : "rgba(220,220,220,1)",
+						pointColor : "rgba(220,220,220,1)",
+						pointStrokeColor : "#fff",
+						pointHighlightFill : "#fff",
+						pointHighlightStroke : "rgba(220,220,220,1)",
+						data : [ 65, 59, 90, 81, 56, 55, 40 ]
+					}, {
+						label : "My Second dataset",
+						fillColor : "rgba(151,187,205,0.2)",
+						strokeColor : "rgba(151,187,205,1)",
+						pointColor : "rgba(151,187,205,1)",
+						pointStrokeColor : "#fff",
+						pointHighlightFill : "#fff",
+						pointHighlightStroke : "rgba(151,187,205,1)",
+						data : [ 28, 48, 40, 19, 96, 27, 100 ]
+					} ]
+				},
+				options : {
+					responsive : true,
+					scaleFontColor : "#FFFFFF"
+				}
+			});
+
+			//bar
+			var ctx = document.getElementById("traffic").getContext('2d');
+			var myBarChart = new Chart(ctx, {
+				type : 'bar',
+				data : {
+					labels : [ "Red", "Blue", "Yellow", "Green", "Purple",
+							"Orange" ],
+					datasets : [ {
+						label : '# of Votes',
+						data : [ 12, 19, 3, 5, 2, 3 ],
+						backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
+								'rgba(54, 162, 235, 0.2)',
+								'rgba(255, 206, 86, 0.2)',
+								'rgba(75, 192, 192, 0.2)',
+								'rgba(153, 102, 255, 0.2)',
+								'rgba(255, 159, 64, 0.2)' ],
+						borderColor : [ 'rgba(255,99,132,1)',
+								'rgba(54, 162, 235, 1)',
+								'rgba(255, 206, 86, 1)',
+								'rgba(75, 192, 192, 1)',
+								'rgba(153, 102, 255, 1)',
+								'rgba(255, 159, 64, 1)' ],
+						borderWidth : 1,
+						color : 'rgba(255, 255, 255, 1)'
+					} ]
+				},
+				optionss : {
+					scales : {
+						yAxes : [ {
+							ticks : {
+								beginAtZero : true
+							}
+						} ]
+					}
+				}
+			});
+
+			//pie
+			var ctxP = document.getElementById("seo").getContext('2d');
+			var myPieChart = new Chart(ctxP, {
+				type : 'pie',
+				data : {
+					labels : [ "Red", "Green", "Yellow", "Grey", "Dark Grey" ],
+					datasets : [ {
+						data : [ 300, 50, 100, 40, 120 ],
+						backgroundColor : [ "#F7464A", "#46BFBD", "#FDB45C",
+								"#949FB1", "#4D5360" ],
+						hoverBackgroundColor : [ "#FF5A5E", "#5AD3D1",
+								"#FFC870", "#A8B3C5", "#616774" ]
+					} ]
+				},
+				options : {
+					responsive : true
+				}
+			});
+
+		});
+	</script>
+
+	<script>
+		$(function() {
+			$('.min-chart#chart-sales').easyPieChart({
+				barColor : "#4caf50",
+				onStep : function(from, to, percent) {
+					$(this.el).find('.percent').text(Math.round(percent));
+				}
+			});
+		});
+	</script>
+
+	<script>
+		// Data Picker Initialization
+		$('.datepicker').pickadate();
+
+		// Material Select Initialization
+		$(document).ready(function() {
+			$('.mdb-select').material_select();
+		});
+
+		// Sidenav Initialization
+		$(".button-collapse").sideNav();
+
+		// Tooltips Initialization
+		$(function() {
+			$('[data-toggle="tooltip"]').tooltip()
+		})
+	</script>
+
+
+	<!-- JVectorMap -->
+	
+	<script
+		src="js/jquery-jvectormap-2.0.3.min.js"></script>
+	<script
+		src="js/jquery-jvectormap-world-mill.js"></script>
+
+	<script>
+		$(function() {
+
+			colors = {};
+
+			colors['ca'] = '#A4D886';
+			colors['ru'] = '#FCECA2';
+			colors['cn'] = '#F9573B';
+			colors['us'] = '#87CEEB';
+			colors['jp'] = '#34BD0E';
+			colors['au'] = '#BCC7FC';
+			colors['kz'] = '#D4624E';
+			colors['de'] = '#34BD0E';
+
+			$('#world-map').vectorMap({
+				colors : colors,
+				hoverOpacity : 0.7, // opacity for :hover
+				hoverColor : false
+			});
+
+		});
+	</script>
+	</footer>
+
+</body>
+
+</html>
