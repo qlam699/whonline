@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<title>Website học trực tuyến</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+
+<!-- Material Design Bootstrap -->
+<link href="css/compiled.min.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet" />
+<link href="css/bootstrap-datepicker.standalone.min.css"
+	rel="stylesheet" />
+</head>
+<body>
+	<header id="header" th:fragment="header">
+		<!--Navbar -->
+		<nav
+			class="mb-1 navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+			<a class="navbar-brand" href="/">Study Online</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent-4"
+				aria-controls="navbarSupportedContent-4" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+				<ul class="navbar-nav ml-auto">					
+					<li class="nav-item active"><a
+						class="nav-link waves-effect waves-light" href="courses"><i
+							class="fa fa-graduation-cap"></i> Courses</a></li>
+					<li class="nav-item"><a
+						class="nav-link waves-effect waves-light" href="teachers"><i
+							class="fa fa-user-circle"></i> Teachers</a></li>
+					<li class="nav-item"><a
+						class="nav-link waves-effect waves-light" href="contact"><i
+							class="fa fa-envelope"></i> Contact</a></li>
+					<li class="nav-item"><a
+						class="nav-link waves-effect waves-light" href="#"><i
+							class="fa fa-gear"></i>Term</a></li>
+					<li class="nav-item"><a class="nav-link" data-toggle="modal"
+						data-target=".modal" href="loginregister"><i
+							class="fa fa-lock"></i>Login</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+							class="fa fa-user"></i> Profile </a>
+						<div class="dropdown-menu dropdown-menu-right dropdown-cyan"
+							aria-labelledby="navbarDropdownMenuLink-4">
+							<a class="dropdown-item" href="myaccount">My account</a> <a
+								class="dropdown-item" href="#">Log out</a>
+						</div></li>
+				</ul>
+			</div>
+		</nav>
+		<!--/.Navbar -->
+
+		<!-- Intro Section -->
+		<div class="view jarallax welshort"
+			style="background-image: url(img/homefeature.jpg);">
+			<div class="full-bg-img">
+				<div class="container flex-center">
+					<div class="row pt-5 mt-3">
+						<div class="col-md-12 mb-3">
+							<div class="intro-info-content text-center">
+								<h1 class="display-4 mb-5 wow fadeInDown" data-wow-delay="0.3s">
+									<a class="white-text font-bold">Start online learning today
+									</a>
+								</h1>
+								<form role="search" action="http://wp-education.xoothemes.com/"
+									method="get" id="searchform" class="mb-3 wow fadeInLeft">
+									<fieldset>
+										<div class="input-group" style="background: #fff;">
+											<input class="form-control"
+												style="height: inherit; padding: 10px 10px; font-size: 18px; font-weight: bold !important; box-shadow: none;"
+												type="text" name="s" placeholder="Course Search"
+												autocomplete="off" /> <input type="hidden" name="post_type"
+												value="lp_course" /> <span class="input-group-btn">
+												<button type="submit" id="ep-course-search-btn"
+													class="btn teal accent-4">
+													<i class="fa fa-search" aria-hidden="true"></i>
+												</button>
+											</span>
+										</div>
+									</fieldset>
+								</form>
+								<a class="btn teal accent-4 btn-lg wow fadeInDown"
+									data-wow-delay="0.7s" data-toggle="modal" href="loginregister"
+									data-target=".modal">Register and Log in</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!--Modal: Login / Register Form Demo-->
+	<div th:fragment="modal" class="modal fade" id="mymodal" tabindex="-1"
+		role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog cascading-modal" role="document">
+			<!--Content-->
+			<div class="modal-content">
+				<!--Modal cascading tabs-->
+
+			</div>
+
+			<!--/.Content-->
+		</div>
+	</div>
+	<!--Modal: Login / Register Form Demo-->
+	
+	<!--Footer-->
+	<footer th:fragment="footer"
+		class="page-footer center-on-small-only default-color">
+
+		<!--Footer Links-->
+		<div class="container-fluid">
+			<div class="row">
+
+				<!--First column-->
+				<div class="col-lg-3 col-md-6 ml-auto">
+					<h5 class="title font-bold mt-3 mb-4">ABOUT MATERIAL DESIGN</h5>
+					<p>Material Design (codenamed Quantum Paper) is a design
+						language developed by Google.</p>
+
+					<p>Material Design for Bootstrap (MDB) is a powerful Material
+						Design UI KIT for most popular HTML, CSS, and JS framework -
+						Bootstrap.</p>
+				</div>
+				<!--/.First column-->
+
+				<hr class="w-100 clearfix d-sm-none" />
+
+				<!--Second column-->
+				<div class="col-lg-2 col-md-6 ml-auto">
+					<h5 class="title font-bold mt-3 mb-4">Recent Trips</h5>
+					<ul>
+						<li><a href="#!">Balkans</a></li>
+						<li><a href="#!">Tatra Mountains</a></li>
+						<li><a href="#!">Norway Fjords</a></li>
+						<li><a href="#!">Baikal Lake</a></li>
+					</ul>
+				</div>
+				<!--/.Second column-->
+
+				<hr class="w-100 clearfix d-sm-none" />
+
+				<!--Third column-->
+				<div class="col-lg-2 col-md-6 ml-auto">
+					<h5 class="title font-bold mt-3 mb-4">My guest articles</h5>
+					<ul>
+						<li><a href="#!">"Things I learn on the road"</a></li>
+						<li><a href="#!">"Low-budget traveling made simple"</a></li>
+						<li><a href="#!">"Talking with locals"</a></li>
+						<li><a href="#!">"Leaving things behind"</a></li>
+					</ul>
+				</div>
+				<!--/.Third column-->
+
+				<hr class="w-100 clearfix d-sm-none" />
+
+				<!--Fourth column-->
+				<div class="col-lg-2 col-md-6 ml-auto">
+					<h5 class="title font-bold mt-3 mb-4">Follow me on</h5>
+					<ul>
+						<li><a href="#!">Facebook</a></li>
+						<li><a href="#!">Instagram</a></li>
+						<li><a href="#!">Twitter</a></li>
+						<li><a href="#!">Pinterest</a></li>
+					</ul>
+				</div>
+				<!--/.Fourth column-->
+
+			</div>
+		</div>
+		<!--/.Footer Links-->
+
+		<hr />
+
+
+
+		<!--Copyright-->
+		<div class="footer-copyright">
+			<div class="container-fluid">
+				© 2015 Copyright: <a href="https://www.google.com">Lam</a>
+
+			</div>
+		</div>
+		<!--/.Copyright-->
+		<!-- SCRIPTS -->
+		<!-- JQuery -->
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+
+		<!-- Bootstrap dropdown -->
+		<script type="text/javascript" src="js/popper.min.js"></script>
+		<script type="text/javascript" src="js/compiled.min.js"></script>
+
+		<script>
+			new WOW().init();
+		</script>
+		<script>
+			//lay link qua href cua the btn
+			$(".modal").on("show.bs.modal", function(e) {
+				$('body').css('overflow', 'hidden');
+					var link = $(e.relatedTarget);
+					$(this).find(".modal-content").load(link.attr("href"));
+			});
+			//Reset modal box
+			$(".modal").on("hide.bs.modal", function() {
+				$('body').css('overflow', '');
+				$(".modal").attr("id","mymodal");
+				$(".modal-dialog").addClass("cascading-modal"); //modal login
+				$(this).find(".modal-content").html("");
+			});
+			
+			// Material Select Initialization
+			$(document).ready(function() {
+				$('.mdb-select').material_select();
+
+			});
+		</script>
+	</footer>
+	<!--/.Footer-->
+</body>
+</html>
