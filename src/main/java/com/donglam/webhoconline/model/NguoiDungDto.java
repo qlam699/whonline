@@ -50,19 +50,13 @@ public class NguoiDungDto {
 		this.ndQuyens = ndQuyens;
 	}
 
-
-
 	public List<NdQuyen> getNdQuyens() {
 		return ndQuyens;
 	}
 
-
-
 	public void setNdQuyens(List<NdQuyen> ndQuyens) {
 		this.ndQuyens = ndQuyens;
 	}
-
-
 
 	public String getMand() {
 		return mand;

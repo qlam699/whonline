@@ -30,7 +30,6 @@ public class NguoiDungServiceImpl extends GenericServiceImpl<NguoiDung, String> 
 
 	@Override
 	public List<NguoiDung> getListTeacher() {
-		// TODO Auto-generated method stub
 		return dao.getListTeacher();
 	}
 }
