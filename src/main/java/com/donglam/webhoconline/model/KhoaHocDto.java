@@ -27,6 +27,8 @@ public class KhoaHocDto {
 	private double hocphi;
 
 	private String mota;
+	
+	private String hinh;
 
 	private boolean daduyet;
 
@@ -34,7 +36,7 @@ public class KhoaHocDto {
 	}
 
 	public KhoaHocDto(String makh, String tenkh, String makhoa, String maloaikh, Date giobd, Date giokt, Date tgbdhoc,
-			Date tgkthoc, Date tgbddk, Date tgktdk, double hocphi, String mota, boolean daduyet) {
+			Date tgkthoc, Date tgbddk, Date tgktdk, double hocphi, String mota, String hinh, boolean daduyet) {
 		super();
 		this.makh = makh;
 		this.tenkh = tenkh;
@@ -48,6 +50,7 @@ public class KhoaHocDto {
 		this.tgktdk = tgktdk;
 		this.hocphi = hocphi;
 		this.mota = mota;
+		this.hinh = hinh;
 		this.daduyet = daduyet;
 	}
 
@@ -145,6 +148,14 @@ public class KhoaHocDto {
 
 	public void setMota(String mota) {
 		this.mota = mota;
+	}
+
+	public String getHinh() {
+		return hinh;
+	}
+
+	public void setHinh(String hinh) {
+		this.hinh = hinh;
 	}
 
 	public boolean isDaduyet() {

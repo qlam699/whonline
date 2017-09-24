@@ -17,4 +17,11 @@ public class NguoiDungDaoImpl extends GenericDaoImpl<NguoiDung, String> implemen
 		query.setParameter("ten", ten);
 		return currentSession().createCriteria(daoType).list();
 	}
+
+	@Override
+	public List<NguoiDung> getListTeacher() {
+		Query query = currentSession().createQuery("from nguoidung where nguoidung.ten =: ten");
+		return currentSession().createCriteria(daoType).list();
+	}
+	
 }

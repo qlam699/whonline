@@ -21,15 +21,19 @@ public class Bai {
 	@Column(name = "noidung", nullable = false)
 	private String noidung;
 
+	@Column(name = "trangthai", nullable = false)
+	private boolean trangthai;
+
 	public Bai() {
 	}
 
-	public Bai(String mabai, String tenbai, String machuong, String noidung) {
+	public Bai(String mabai, String tenbai, String machuong, String noidung, boolean trangthai) {
 		super();
 		this.mabai = mabai;
 		this.tenbai = tenbai;
 		this.machuong = machuong;
 		this.noidung = noidung;
+		this.trangthai = trangthai;
 	}
 
 	public String getMabai() {
@@ -62,6 +66,14 @@ public class Bai {
 
 	public void setNoidung(String noidung) {
 		this.noidung = noidung;
+	}
+
+	public boolean isTrangthai() {
+		return trangthai;
+	}
+
+	public void setTrangthai(boolean trangthai) {
+		this.trangthai = trangthai;
 	}
 
 }

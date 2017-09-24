@@ -51,8 +51,80 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>com.finder</groupId>
+			<artifactId>ckfinder</artifactId>
+			<version>2.6.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.finder</groupId>
+			<artifactId>fileupload</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.finder</groupId>
+			<artifactId>thumbnailator</artifactId>
+			<version>2.6.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.finder</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.finder</groupId>
+			<artifactId>commons</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.finder</groupId>
+			<artifactId>fileeditor</artifactId>
+			<version>2.6.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.finder</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>com.finder</groupId>
+			<artifactId>jboss</artifactId>
+			<version>3.2.11</version>
+		</dependency>
+		<dependency>
+			<groupId>com.finder</groupId>
+			<artifactId>imgresize</artifactId>
+			<version>2.6.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.finder</groupId>
+			<artifactId>jbosslog</artifactId>
+			<version>3.1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.finder</groupId>
+			<artifactId>watermark</artifactId>
+			<version>2.6.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.finder</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.1</version>
+		</dependency>
+		<dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.ckeditor</groupId>
+            <artifactId>ckeditor-java-core</artifactId>
+            <version>3.5.3</version>
+        </dependency>
+        
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>

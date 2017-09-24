@@ -39,10 +39,7 @@ public class HomeController {
 	public String contact(Model model) {
 		return "contact";
 	}
-	@GetMapping("/teachers")
-	public String teachers(Model model) {
-		return "teachers";
-	}
+	
 	@GetMapping("/myaccount")
 	public String myaccount(Model model) {
 		return "myaccount";

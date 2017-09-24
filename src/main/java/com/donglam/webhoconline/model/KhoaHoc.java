@@ -47,6 +47,9 @@ public class KhoaHoc {
 	@Column(name = "mota", nullable = false)
 	private String mota;
 
+	@Column(name = "hinh", nullable = false)
+	private String hinh;
+
 	@Column(name = "daduyet", nullable = false)
 	private boolean daduyet;
 
@@ -54,7 +57,7 @@ public class KhoaHoc {
 	}
 
 	public KhoaHoc(String makh, String tenkh, String makhoa, String maloaikh, Date giobd, Date giokt, Date tgbdhoc,
-			Date tgkthoc, Date tgbddk, Date tgktdk, double hocphi, String mota, boolean daduyet) {
+			Date tgkthoc, Date tgbddk, Date tgktdk, double hocphi, String mota, String hinh, boolean daduyet) {
 		super();
 		this.makh = makh;
 		this.tenkh = tenkh;
@@ -68,6 +71,7 @@ public class KhoaHoc {
 		this.tgktdk = tgktdk;
 		this.hocphi = hocphi;
 		this.mota = mota;
+		this.hinh = hinh;
 		this.daduyet = daduyet;
 	}
 
@@ -165,6 +169,14 @@ public class KhoaHoc {
 
 	public void setMota(String mota) {
 		this.mota = mota;
+	}
+
+	public String getHinh() {
+		return hinh;
+	}
+
+	public void setHinh(String hinh) {
+		this.hinh = hinh;
 	}
 
 	public boolean isDaduyet() {

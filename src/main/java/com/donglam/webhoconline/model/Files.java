@@ -28,6 +28,9 @@ public class Files {
 
 	@Column(name = "nguoidang", nullable = false)
 	private String nguoidang;
+	
+	@Column(name = "url", nullable = false)
+	private String url;
 
 	@Column(name = "mota", nullable = false)
 	private String mota;
@@ -35,13 +38,15 @@ public class Files {
 	public Files() {
 	}
 
-	public Files(int mafile, String tenfile, String dungluong, Date ngaydang, String nguoidang, String mota) {
+	public Files(int mafile, String tenfile, String dungluong, Date ngaydang, String nguoidang, String url,
+			String mota) {
 		super();
 		this.mafile = mafile;
 		this.tenfile = tenfile;
 		this.dungluong = dungluong;
 		this.ngaydang = ngaydang;
 		this.nguoidang = nguoidang;
+		this.url = url;
 		this.mota = mota;
 	}
 
@@ -83,6 +88,14 @@ public class Files {
 
 	public void setNguoidang(String nguoidang) {
 		this.nguoidang = nguoidang;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	public String getMota() {

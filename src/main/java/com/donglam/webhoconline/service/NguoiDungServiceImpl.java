@@ -26,4 +26,10 @@ public class NguoiDungServiceImpl extends GenericServiceImpl<NguoiDung, String> 
 	public List<NguoiDung> getListByName(String ten) {
 		return dao.getListByName(ten);
 	}
+
+	@Override
+	public List<NguoiDung> getListTeacher() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

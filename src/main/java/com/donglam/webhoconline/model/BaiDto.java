@@ -10,15 +10,18 @@ public class BaiDto {
 
 	private String noidung;
 
+	private boolean trangthai;
+
 	public BaiDto() {
 	}
 
-	public BaiDto(String mabai, String tenbai, String machuong, String noidung) {
+	public BaiDto(String mabai, String tenbai, String machuong, String noidung, boolean trangthai) {
 		super();
 		this.mabai = mabai;
 		this.tenbai = tenbai;
 		this.machuong = machuong;
 		this.noidung = noidung;
+		this.trangthai = trangthai;
 	}
 
 	public String getMabai() {
@@ -51,6 +54,14 @@ public class BaiDto {
 
 	public void setNoidung(String noidung) {
 		this.noidung = noidung;
+	}
+
+	public boolean isTrangthai() {
+		return trangthai;
+	}
+
+	public void setTrangthai(boolean trangthai) {
+		this.trangthai = trangthai;
 	}
 
 }

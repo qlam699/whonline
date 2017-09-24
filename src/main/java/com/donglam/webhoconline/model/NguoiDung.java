@@ -21,7 +21,7 @@ public class NguoiDung {
 	private String ten;
 
 	@Column(name = "phai", nullable = false)
-	private String phai;
+	private boolean phai;
 
 	@Column(name = "ngaysinh", nullable = false)
 	private Date ngaysinh;
@@ -47,8 +47,8 @@ public class NguoiDung {
 	public NguoiDung() {
 	}
 
-	public NguoiDung(String mand, String hovatenlot, String ten, String phai, Date ngaysinh, String diachi, String cmnd,
-			String email, String password, String avatar, String mota) {
+	public NguoiDung(String mand, String hovatenlot, String ten, boolean phai, Date ngaysinh, String diachi,
+			String cmnd, String email, String password, String avatar, String mota) {
 		super();
 		this.mand = mand;
 		this.hovatenlot = hovatenlot;
@@ -87,11 +87,11 @@ public class NguoiDung {
 		this.ten = ten;
 	}
 
-	public String getPhai() {
+	public boolean isPhai() {
 		return phai;
 	}
 
-	public void setPhai(String phai) {
+	public void setPhai(boolean phai) {
 		this.phai = phai;
 	}
 

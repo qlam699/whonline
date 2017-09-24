@@ -13,19 +13,23 @@ public class FilesDto {
 	private Date ngaydang;
 
 	private String nguoidang;
-
+	
+	private String url;
+	
 	private String mota;
 
 	public FilesDto() {
 	}
 
-	public FilesDto(int mafile, String tenfile, String dungluong, Date ngaydang, String nguoidang, String mota) {
+	public FilesDto(int mafile, String tenfile, String dungluong, Date ngaydang, String nguoidang, String url,
+			String mota) {
 		super();
 		this.mafile = mafile;
 		this.tenfile = tenfile;
 		this.dungluong = dungluong;
 		this.ngaydang = ngaydang;
 		this.nguoidang = nguoidang;
+		this.url = url;
 		this.mota = mota;
 	}
 
@@ -67,6 +71,14 @@ public class FilesDto {
 
 	public void setNguoidang(String nguoidang) {
 		this.nguoidang = nguoidang;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	public String getMota() {

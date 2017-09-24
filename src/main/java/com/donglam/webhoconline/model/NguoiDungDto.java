@@ -10,7 +10,7 @@ public class NguoiDungDto {
 
 	private String ten;
 
-	private String phai;
+	private boolean phai;
 
 	private Date ngaysinh;
 
@@ -29,7 +29,7 @@ public class NguoiDungDto {
 	public NguoiDungDto() {
 	}
 
-	public NguoiDungDto(String mand, String hovatenlot, String ten, String phai, Date ngaysinh, String diachi,
+	public NguoiDungDto(String mand, String hovatenlot, String ten, boolean phai, Date ngaysinh, String diachi,
 			String cmnd, String email, String password, String avatar, String mota) {
 		super();
 		this.mand = mand;
@@ -69,11 +69,11 @@ public class NguoiDungDto {
 		this.ten = ten;
 	}
 
-	public String getPhai() {
+	public boolean isPhai() {
 		return phai;
 	}
 
-	public void setPhai(String phai) {
+	public void setPhai(boolean phai) {
 		this.phai = phai;
 	}
 
