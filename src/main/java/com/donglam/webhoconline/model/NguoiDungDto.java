@@ -1,6 +1,8 @@
 package com.donglam.webhoconline.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class NguoiDungDto {
 
@@ -25,12 +27,14 @@ public class NguoiDungDto {
 	private String avatar;
 
 	private String mota;
-
+	
+	private List<NdQuyen> ndQuyens=new ArrayList<NdQuyen>();
+	
 	public NguoiDungDto() {
 	}
 
 	public NguoiDungDto(String mand, String hovatenlot, String ten, boolean phai, Date ngaysinh, String diachi,
-			String cmnd, String email, String password, String avatar, String mota) {
+			String cmnd, String email, String password, String avatar, String mota, List<NdQuyen> ndQuyens) {
 		super();
 		this.mand = mand;
 		this.hovatenlot = hovatenlot;
@@ -43,7 +47,22 @@ public class NguoiDungDto {
 		this.password = password;
 		this.avatar = avatar;
 		this.mota = mota;
+		this.ndQuyens = ndQuyens;
 	}
+
+
+
+	public List<NdQuyen> getNdQuyens() {
+		return ndQuyens;
+	}
+
+
+
+	public void setNdQuyens(List<NdQuyen> ndQuyens) {
+		this.ndQuyens = ndQuyens;
+	}
+
+
 
 	public String getMand() {
 		return mand;

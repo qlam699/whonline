@@ -1,10 +1,15 @@
 package com.donglam.webhoconline.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -14,22 +19,22 @@ public class NguoiDung {
 	@Column(name = "mand", nullable = false)
 	private String mand;
 
-	@Column(name = "hovatenlot", nullable = false)
+	@Column(name = "hovatenlot", nullable = true)
 	private String hovatenlot;
 
 	@Column(name = "ten", nullable = false)
 	private String ten;
 
-	@Column(name = "phai", nullable = false)
+	@Column(name = "phai", nullable = true)
 	private boolean phai;
 
-	@Column(name = "ngaysinh", nullable = false)
+	@Column(name = "ngaysinh", nullable = true)
 	private Date ngaysinh;
 
-	@Column(name = "diachi", nullable = false)
+	@Column(name = "diachi", nullable = true)
 	private String diachi;
 
-	@Column(name = "cmnd", nullable = false)
+	@Column(name = "cmnd", nullable = true)
 	private String cmnd;
 
 	@Column(name = "email", nullable = false)
@@ -38,17 +43,20 @@ public class NguoiDung {
 	@Column(name = "password", nullable = false)
 	private String password;
 
-	@Column(name = "avatar", nullable = false)
+	@Column(name = "avatar", nullable = true)
 	private String avatar;
 
-	@Column(name = "mota", nullable = false)
+	@Column(name = "mota", nullable = true)
 	private String mota;
-
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ndquyenid.nguoidung", cascade=CascadeType.ALL)
+	private List<NdQuyen> ndQuyens=new ArrayList<NdQuyen>();
+	
 	public NguoiDung() {
 	}
 
 	public NguoiDung(String mand, String hovatenlot, String ten, boolean phai, Date ngaysinh, String diachi,
-			String cmnd, String email, String password, String avatar, String mota) {
+			String cmnd, String email, String password, String avatar, String mota, List<NdQuyen> ndQuyens) {
 		super();
 		this.mand = mand;
 		this.hovatenlot = hovatenlot;
@@ -61,6 +69,15 @@ public class NguoiDung {
 		this.password = password;
 		this.avatar = avatar;
 		this.mota = mota;
+		this.ndQuyens = ndQuyens;
+	}
+
+	public List<NdQuyen> getNdQuyens() {
+		return ndQuyens;
+	}
+
+	public void setNdQuyens(List<NdQuyen> ndQuyens) {
+		this.ndQuyens = ndQuyens;
 	}
 
 	public String getMand() {

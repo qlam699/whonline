@@ -5,19 +5,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.donglam.webhoconline.model.NguoiDung;
 import com.donglam.webhoconline.service.KhoaHocService;
 import com.donglam.webhoconline.service.NguoiDungService;
 
 @Controller
 public class TeacherController {
 	
-//	@Autowired
-//    private NguoiDungService gvs;
+	@Autowired
+    private NguoiDungService gvs;
 	
 	@GetMapping("/teachers")
 	public String teachers(Model model) {
-		// model.addAttribute("dsgv", gvs.getList());
-		
+		 model.addAttribute("dsgv", gvs.getListTeacher());
+		/*for(NguoiDung x: gvs.getListTeacher()) {
+			System.out.print(x.getHovatenlot());
+		}*/
 		return "teachers";
 	}
 	

@@ -53,7 +53,7 @@
 	<!--First row-->
 	<div class="row mt-5 ">
 		<!--First column-->
-		<div class="col-md-4">
+		<div th:each="gv,i : ${dsgv}" class="col-md-4">
 
 			<div class="testimonial">
 				<!--Avatar-->
@@ -63,11 +63,10 @@
 						class="rounded-circle img-fluid" />
 				</div>
 				<!--Content-->
-				<h4>Anna Deynah</h4>
-				<h6 class="blue-text font-bold">Web Designer</h6>
+				<h4 th:text="${gv.hovatenlot + ' ' + gv.ten}">Anna Deynah</h4>
+				<h6 class="blue-text font-bold" th:text="${gv.ten}">Web Designer</h6>
 				<p>
-					<i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet,
-					consectetur adipisicing elit. Quod eos id officiis hic tenetur.
+					<i class="fa fa-quote-left"></i> <span th:text="${gv.mota}" th:remove="tag"></span>
 				</p>
 
 				<!--Review-->
@@ -80,59 +79,6 @@
 
 		</div>
 		<!--/.First column-->
-		<div class="col-md-4">
-
-			<div class="testimonial">
-				<!--Avatar-->
-				<div class="avatar">
-					<img
-						src="https://mdbootstrap.com/img/Photos/Avatars/img%20(26).jpg"
-						class="rounded-circle img-fluid" />
-				</div>
-				<!--Content-->
-				<h4>Anna Deynah</h4>
-				<h6 class="blue-text font-bold">Web Designer</h6>
-				<p>
-					<i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet,
-					consectetur adipisicing elit. Quod eos id officiis hic tenetur.
-				</p>
-
-				<!--Review-->
-				<div class="grey-text">
-					<i class="fa fa-star"> </i> <i class="fa fa-star"> </i> <i
-						class="fa fa-star"> </i> <i class="fa fa-star"> </i> <i
-						class="fa fa-star-half-full"> </i>
-				</div>
-			</div>
-
-		</div>
-		<div class="col-md-4">
-
-			<div class="testimonial">
-				<!--Avatar-->
-				<div class="avatar">
-					<img
-						src="https://mdbootstrap.com/img/Photos/Avatars/img%20(26).jpg"
-						class="rounded-circle img-fluid" />
-				</div>
-				<!--Content-->
-				<h4>Anna Deynah</h4>
-				<h6 class="blue-text font-bold">Web Designer</h6>
-				<p>
-					<i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet,
-					consectetur adipisicing elit. Quod eos id officiis hic tenetur.
-				</p>
-
-				<!--Review-->
-				<div class="grey-text">
-					<i class="fa fa-star"> </i> <i class="fa fa-star"> </i> <i
-						class="fa fa-star"> </i> <i class="fa fa-star"> </i> <i
-						class="fa fa-star-half-full"> </i>
-				</div>
-			</div>
-
-		</div>
-
 	</div>
 	<!--/.First row-->
 
