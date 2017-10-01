@@ -42,7 +42,7 @@ public class HibernateUtil {
 	      StandardServiceRegistryBuilder.destroy(registry);
 	    }
 	  }
-   /* 
+   /*//https://www.boraji.com/hibernate-5-basic-configuration-example
   public static void main(String[] args) {
     Session session = HibernateUtil.getSessionFactory().openSession();
     session.beginTransaction();

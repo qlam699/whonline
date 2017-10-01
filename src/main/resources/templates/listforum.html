@@ -1,0 +1,40 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="homelayout :: head"></head>
+<body>
+	<div th:replace="homelayout :: header"></div>
+	<div th:replace="homelayout :: modal"></div>
+	<!--Content-->
+	<main class="container"> <!--./ code here --> <!--Section: Comments list-->
+	<!--Main wrapper-->
+	<div class="mt-5 comments-list text-left">
+		<div class="section-heading">
+			<h3>
+				Khóa học abc <span class="badge blue">1</span>
+			</h3>
+		</div>
+		<!--First row-->
+		<div class="d-flex flex-row align-items-center mb-3">
+			<!--Image column-->
+			<img class="round img-fluid"
+				src="https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg" />
+			<!--/.Image column-->
+			<!--Content column-->
+			<div class="pl-3">
+				<a href="#"><h3 class="user-name">How to abcd ?</h3></a>
+				<div class="card-data">
+					<a href="#"><i class="fa fa-user"></i> username</a> <span
+						class="pl-3"><i class="fa fa-clock-o"></i> 05/10/2015</span>
+
+				</div>
+			</div>
+			<!--/.Content column-->
+		</div>
+		<hr />
+		<!--/.First row-->
+
+	</div>
+	<!--/.Main wrapper--> <!--./ code here --> </main>
+	<!--/.Content-->
+	<footer th:replace="homelayout :: footer"></footer>
+</body>
+</html>
