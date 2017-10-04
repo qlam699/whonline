@@ -91,12 +91,12 @@ public class CourseController {
 
 	// manager courses
 	@GetMapping("/adcourse")
-	public String adqlkhoahoc(Model model) {
+	public String adcourse(Model model) {
 		model.addAttribute("dskh", khs.getList());
 		model.addAttribute("dskhoa", ks.getList());
 		model.addAttribute("dsloaikh", lkhs.getList());
 
-		return "adqlkhoahoc";
+		return "adcourse";
 	}
 
 }
