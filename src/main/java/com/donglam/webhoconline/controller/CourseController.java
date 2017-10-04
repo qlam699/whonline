@@ -29,10 +29,16 @@ public class CourseController {
 	@GetMapping("/courses")
 	public String courses(Model model) {
 		model.addAttribute("dskh", khs.getList());
-
+			
 		return "courses";
 	}
-
+	@GetMapping("/courses/{page}")
+	public String courses(@PathVariable int page,Model model) {
+		model.addAttribute("countpage",khs.getList().size());
+		model.addAttribute("dskh", khs.getList());
+			
+		return "courses";
+	}
 	/*
 	 * @GetMapping("/compkhoa") public String compkhoa(Model model) {
 	 * //model.addAttribute("dskh", khs.getList()); return "comp/khoa"; }

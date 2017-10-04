@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "nguoidung")
 public class NguoiDung {
@@ -28,6 +30,7 @@ public class NguoiDung {
 	@Column(name = "phai", nullable = true)
 	private boolean phai;
 
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	@Column(name = "ngaysinh", nullable = true)
 	private Date ngaysinh;
 
@@ -40,23 +43,23 @@ public class NguoiDung {
 	@Column(name = "email", nullable = false)
 	private String email;
 
-	@Column(name = "password", nullable = false)
-	private String password;
+	@Column(name = "matkhau", nullable = false)
+	private String matkhau;
 
-	@Column(name = "avatar", nullable = true)
-	private String avatar;
+	@Column(name = "hinh", nullable = true)
+	private String hinh;
 
 	@Column(name = "mota", nullable = true)
 	private String mota;
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ndquyenid.nguoidung", cascade=CascadeType.ALL)
-	private List<NdQuyen> ndQuyens=new ArrayList<NdQuyen>();
-	
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ndquyenid.nguoidung", cascade = CascadeType.ALL)
+	private List<NdQuyen> ndQuyens = new ArrayList<NdQuyen>();
+
 	public NguoiDung() {
 	}
 
 	public NguoiDung(String mand, String hovatenlot, String ten, boolean phai, Date ngaysinh, String diachi,
-			String cmnd, String email, String password, String avatar, String mota, List<NdQuyen> ndQuyens) {
+			String cmnd, String email, String matkhau, String hinh, String mota, List<NdQuyen> ndQuyens) {
 		super();
 		this.mand = mand;
 		this.hovatenlot = hovatenlot;
@@ -66,17 +69,9 @@ public class NguoiDung {
 		this.diachi = diachi;
 		this.cmnd = cmnd;
 		this.email = email;
-		this.password = password;
-		this.avatar = avatar;
+		this.matkhau = matkhau;
+		this.hinh = hinh;
 		this.mota = mota;
-		this.ndQuyens = ndQuyens;
-	}
-
-	public List<NdQuyen> getNdQuyens() {
-		return ndQuyens;
-	}
-
-	public void setNdQuyens(List<NdQuyen> ndQuyens) {
 		this.ndQuyens = ndQuyens;
 	}
 
@@ -144,20 +139,20 @@ public class NguoiDung {
 		this.email = email;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getMatkhau() {
+		return matkhau;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setMatkhau(String matkhau) {
+		this.matkhau = matkhau;
 	}
 
-	public String getAvatar() {
-		return avatar;
+	public String getHinh() {
+		return hinh;
 	}
 
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
+	public void setHinh(String hinh) {
+		this.hinh = hinh;
 	}
 
 	public String getMota() {
@@ -166,6 +161,14 @@ public class NguoiDung {
 
 	public void setMota(String mota) {
 		this.mota = mota;
+	}
+
+	public List<NdQuyen> getNdQuyens() {
+		return ndQuyens;
+	}
+
+	public void setNdQuyens(List<NdQuyen> ndQuyens) {
+		this.ndQuyens = ndQuyens;
 	}
 
 }

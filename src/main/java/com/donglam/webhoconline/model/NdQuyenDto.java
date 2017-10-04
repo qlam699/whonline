@@ -6,24 +6,24 @@ public class NdQuyenDto {
 
 	private NdQuyenId ndquyenid;
 
-	private Date createdate;
+	private Date ngaycap;
 	
 	public NdQuyenDto() {
 	}
 	
-	public NdQuyenDto(NdQuyenId ndquyenid, Date createdate) {
+	public NdQuyenDto(NdQuyenId ndquyenid, Date ngaycap) {
 		super();
 		this.ndquyenid = ndquyenid;
-		this.createdate = createdate;
+		this.ngaycap = ngaycap;
 	}
 
-	public Date getCreatedate() {
-		return createdate;
+	public Date getNgaycap() {
+		return ngaycap;
 	}
 
 
-	public void setCreatedate(Date createdate) {
-		this.createdate = createdate;
+	public void setNgaycap(Date ngaycap) {
+		this.ngaycap = ngaycap;
 	}
 
 	public NdQuyenId getNdquyenid() {

@@ -1,20 +1,32 @@
 package com.donglam.webhoconline.model;
 
 public class ThaoLuanDto {
+	
+	private KhoaHoc khoahoc;
+	
 	private ThaoLuanId thaoluanid;
 
 	private String noidung;
 
-	private String makh;
+	private String matl;
 
 	public ThaoLuanDto() {
 	}
 
-	public ThaoLuanDto(ThaoLuanId thaoluanid, String noidung, String makh) {
+	public ThaoLuanDto(KhoaHoc khoahoc, ThaoLuanId thaoluanid, String noidung, String matl) {
 		super();
+		this.khoahoc = khoahoc;
 		this.thaoluanid = thaoluanid;
 		this.noidung = noidung;
-		this.makh = makh;
+		this.matl = matl;
+	}
+
+	public KhoaHoc getKhoahoc() {
+		return khoahoc;
+	}
+
+	public void setKhoahoc(KhoaHoc khoahoc) {
+		this.khoahoc = khoahoc;
 	}
 
 	public ThaoLuanId getThaoluanid() {
@@ -33,12 +45,12 @@ public class ThaoLuanDto {
 		this.noidung = noidung;
 	}
 
-	public String getMakh() {
-		return makh;
+	public String getMatl() {
+		return matl;
 	}
 
-	public void setMakh(String makh) {
-		this.makh = makh;
+	public void setMatl(String matl) {
+		this.matl = matl;
 	}
 
 }

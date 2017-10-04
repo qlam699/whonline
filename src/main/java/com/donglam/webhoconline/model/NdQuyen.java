@@ -13,32 +13,30 @@ import javax.persistence.Transient;
 
 @Entity
 @Table(name = "ndquyen")
-@AssociationOverrides({
-	@AssociationOverride(name = "ndquyenid.nguoidung",
-		joinColumns = @JoinColumn(name = "mand")),
-	@AssociationOverride(name = "ndquyenid.quyen",
-		joinColumns = @JoinColumn(name = "maquyen")) })
+@AssociationOverrides({ @AssociationOverride(name = "ndquyenid.nguoidung", joinColumns = @JoinColumn(name = "mand")),
+		@AssociationOverride(name = "ndquyenid.quyen", joinColumns = @JoinColumn(name = "maquyen")) })
+
 public class NdQuyen {
 	@EmbeddedId
 	private NdQuyenId ndquyenid;
 	@Column
-	private Date createdate;
-	
+	private Date ngaycap;
+
 	public NdQuyen() {
 	}
 
-	public NdQuyen(NdQuyenId ndquyenid, Date createdate) {
+	public NdQuyen(NdQuyenId ndquyenid, Date ngaycap) {
 		super();
 		this.ndquyenid = ndquyenid;
-		this.createdate = createdate;
+		this.ngaycap = ngaycap;
 	}
 
-	public Date getCreatedate() {
-		return createdate;
+	public Date getNgaycap() {
+		return ngaycap;
 	}
 
-	public void setCreatedate(Date createdate) {
-		this.createdate = createdate;
+	public void setNgaycap(Date ngaycap) {
+		this.ngaycap = ngaycap;
 	}
 
 	public NdQuyenId getNdquyenid() {
@@ -48,6 +46,7 @@ public class NdQuyen {
 	public void setNdquyenid(NdQuyenId ndquyenid) {
 		this.ndquyenid = ndquyenid;
 	}
+
 	@Transient
 	public NguoiDung getND() {
 		return getNdquyenid().getNd();
@@ -56,6 +55,7 @@ public class NdQuyen {
 	public void setND(NguoiDung nd) {
 		getNdquyenid().setNd(nd);
 	}
+
 	@Transient
 	public Quyen getQuyen() {
 		return getNdquyenid().getQuyen();
@@ -64,6 +64,7 @@ public class NdQuyen {
 	public void setND(Quyen nd) {
 		getNdquyenid().setQuyen(nd);
 	}
+
 	public boolean equals(Object o) {
 		if (this == o)
 			return true;
@@ -72,8 +73,7 @@ public class NdQuyen {
 
 		NdQuyen that = (NdQuyen) o;
 
-		if (getNdquyenid() != null ? !getNdquyenid().equals(that.getNdquyenid())
-				: that.getNdquyenid() != null)
+		if (getNdquyenid() != null ? !getNdquyenid().equals(that.getNdquyenid()) : that.getNdquyenid() != null)
 			return false;
 
 		return true;
@@ -82,5 +82,5 @@ public class NdQuyen {
 	public int hashCode() {
 		return (getNdquyenid() != null ? getNdquyenid().hashCode() : 0);
 	}
-	
+
 }

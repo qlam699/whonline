@@ -8,13 +8,13 @@
 <title>Website học trực tuyến</title>
 
 <!-- Font Awesome -->
-<link rel="stylesheet" href="css/font-awesome.min.css" />
+<link rel="stylesheet" href="css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}"/>
 
 <!-- Material Design Bootstrap -->
-<link href="css/compiled.min.css" rel="stylesheet" />
-<link href="css/style.css" rel="stylesheet" />
+<link href="css/compiled.min.css" rel="stylesheet" th:href="@{/css/compiled.min.css}"/>
+<link href="css/style.css" rel="stylesheet" th:href="@{/css/style.css}"/>
 <link href="css/bootstrap-datepicker.standalone.min.css"
-	rel="stylesheet" />
+	rel="stylesheet" th:href="@{/css/bootstrap-datepicker.standalone.min.css}"/>
 </head>
 <body>
 	<header id="header" th:fragment="header">
@@ -29,7 +29,7 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent-4">
-				<ul class="navbar-nav ml-auto">
+				<ul class="navbar-nav ml-auto">					
 					<li class="nav-item active"><a
 						class="nav-link waves-effect waves-light" href="courses"><i
 							class="fa fa-graduation-cap"></i> Courses</a></li>
@@ -61,7 +61,7 @@
 
 		<!-- Intro Section -->
 		<div class="view jarallax welshort"
-			style="background-image: url(img/homefeature.jpg);">
+			style="background-image: url(img/homefeature.jpg);" th:style="'background:url(' + @{/img/homefeature.jpg} + ');'">
 			<div class="full-bg-img">
 				<div class="container flex-center">
 					<div class="row pt-5 mt-3">
@@ -112,7 +112,7 @@
 		</div>
 	</div>
 	<!--Modal: Login / Register Form Demo-->
-
+	
 	<!--Footer-->
 	<footer th:fragment="footer"
 		class="page-footer center-on-small-only default-color">
@@ -178,7 +178,11 @@
 			</div>
 		</div>
 		<!--/.Footer Links-->
+
 		<hr />
+
+
+
 		<!--Copyright-->
 		<div class="footer-copyright">
 			<div class="container-fluid">
@@ -189,17 +193,30 @@
 		<!--/.Copyright-->
 		<!-- SCRIPTS -->
 		<!-- JQuery -->
-		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-		<script type="text/javascript" src="js/jquery.bootpag.min.js"></script>
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js" th:src="@{/js/jquery-3.1.1.min.js}"></script>
 
 		<!-- Bootstrap dropdown -->
-		<script type="text/javascript" src="js/popper.min.js"></script>
-		<script type="text/javascript" src="js/compiled.min.js"></script>
-		<script type="text/javascript" src="js/cus.js"></script>
+		<script type="text/javascript" src="js/popper.min.js" th:src="@{/js/popper.min.js}"></script>
+		<script type="text/javascript" src="js/compiled.min.js" th:src="@{/js/compiled.min.js}"></script>
+
 		<script>
 			new WOW().init();
 		</script>
 		<script>
+			//lay link qua href cua the btn
+			$(".modal").on("show.bs.modal", function(e) {
+				$('body').css('overflow', 'hidden');
+					var link = $(e.relatedTarget);
+					$(this).find(".modal-content").load(link.attr("href"));
+			});
+			//Reset modal box
+			$(".modal").on("hide.bs.modal", function() {
+				$('body').css('overflow', '');
+				$(".modal").attr("id","mymodal");
+				$(".modal-dialog").addClass("cascading-modal"); //modal login
+				$(this).find(".modal-content").html("");
+			});
+			
 			// Material Select Initialization
 			$(document).ready(function() {
 				$('.mdb-select').material_select();

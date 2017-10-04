@@ -16,7 +16,7 @@ public class NguoiDungDaoImpl extends GenericDaoImpl<NguoiDung, String> implemen
 	// custom method
 	@Override
 	public List<NguoiDung> getListByName(String ten) {
-		Query query = currentSession().createQuery("from nguoidung where nguoidung.ten =: ten");
+		Query query = currentSession().createQuery("from NguoiDung nd where nd.ten=:ten");
 		query.setParameter("ten", ten);
 		return currentSession().createCriteria(daoType).list();
 	}

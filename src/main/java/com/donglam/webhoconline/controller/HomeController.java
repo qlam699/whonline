@@ -40,10 +40,6 @@ public class HomeController {
 		return "contact";
 	}
 	
-	@GetMapping("/myaccount")
-	public String myaccount(Model model) {
-		return "myaccount";
-	}
 	@GetMapping("/detailcourse")
 	public String detailcourse(Model model) {
 		return "detailcourse";
@@ -51,9 +47,5 @@ public class HomeController {
 	@GetMapping("/detailteacher")
 	public String detailteacher(Model model) {
 		return "detailteacher";
-	}
-	@GetMapping("/forum")
-	public String forum(Model model) {
-		return "forum";
 	}
 }

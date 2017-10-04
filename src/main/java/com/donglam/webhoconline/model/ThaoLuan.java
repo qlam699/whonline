@@ -3,28 +3,44 @@ package com.donglam.webhoconline.model;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "thaoluan")
 public class ThaoLuan {
+	
+	@ManyToOne
+    @JoinColumn(name="makh", nullable=false)
+    private KhoaHoc khoahoc;
+	
 	@EmbeddedId
 	private ThaoLuanId thaoluanid;
 
 	@Column(name = "noidung", nullable = false)
 	private String noidung;
 
-	@Column(name = "makh", nullable = false)
-	private String makh;
+	@Column(name = "matl", nullable = false)
+	private int matl;
 
 	public ThaoLuan() {
 	}
 
-	public ThaoLuan(ThaoLuanId thaoluanid, String noidung, String makh) {
+	public ThaoLuan(KhoaHoc khoahoc, ThaoLuanId thaoluanid, String noidung, int matl) {
 		super();
+		this.khoahoc = khoahoc;
 		this.thaoluanid = thaoluanid;
 		this.noidung = noidung;
-		this.makh = makh;
+		this.matl = matl;
+	}
+
+	public KhoaHoc getKhoahoc() {
+		return khoahoc;
+	}
+
+	public void setKhoahoc(KhoaHoc khoahoc) {
+		this.khoahoc = khoahoc;
 	}
 
 	public ThaoLuanId getThaoluanid() {
@@ -43,12 +59,12 @@ public class ThaoLuan {
 		this.noidung = noidung;
 	}
 
-	public String getMakh() {
-		return makh;
+	public int getMatl() {
+		return matl;
 	}
 
-	public void setMakh(String makh) {
-		this.makh = makh;
+	public void setMatl(int matl) {
+		this.matl = matl;
 	}
 
 }

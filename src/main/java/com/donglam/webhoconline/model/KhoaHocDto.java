@@ -1,8 +1,11 @@
 package com.donglam.webhoconline.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class KhoaHocDto {
+	
+	private List<ThaoLuan> thaoluans;
 
 	private String makh;
 
@@ -35,9 +38,11 @@ public class KhoaHocDto {
 	public KhoaHocDto() {
 	}
 
-	public KhoaHocDto(String makh, String tenkh, String makhoa, String maloaikh, Date giobd, Date giokt, Date tgbdhoc,
-			Date tgkthoc, Date tgbddk, Date tgktdk, double hocphi, String mota, String hinh, boolean daduyet) {
+	public KhoaHocDto(List<ThaoLuan> thaoluans, String makh, String tenkh, String makhoa, String maloaikh, Date giobd,
+			Date giokt, Date tgbdhoc, Date tgkthoc, Date tgbddk, Date tgktdk, double hocphi, String mota, String hinh,
+			boolean daduyet) {
 		super();
+		this.thaoluans = thaoluans;
 		this.makh = makh;
 		this.tenkh = tenkh;
 		this.makhoa = makhoa;
@@ -52,6 +57,14 @@ public class KhoaHocDto {
 		this.mota = mota;
 		this.hinh = hinh;
 		this.daduyet = daduyet;
+	}
+
+	public List<ThaoLuan> getThaoluans() {
+		return thaoluans;
+	}
+
+	public void setThaoluans(List<ThaoLuan> thaoluans) {
+		this.thaoluans = thaoluans;
 	}
 
 	public String getMakh() {
@@ -165,5 +178,5 @@ public class KhoaHocDto {
 	public void setDaduyet(boolean daduyet) {
 		this.daduyet = daduyet;
 	}
-
+	
 }

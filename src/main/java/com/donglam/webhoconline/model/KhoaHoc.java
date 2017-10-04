@@ -1,15 +1,21 @@
 package com.donglam.webhoconline.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "khoahoc")
 public class KhoaHoc {
+	
+	@OneToMany(mappedBy="khoahoc")
+	private List<ThaoLuan> thaoluans;
+	
 	@Id
 	@Column(name = "makh", nullable = false)
 	private String makh;
@@ -56,9 +62,11 @@ public class KhoaHoc {
 	public KhoaHoc() {
 	}
 
-	public KhoaHoc(String makh, String tenkh, String makhoa, String maloaikh, Date giobd, Date giokt, Date tgbdhoc,
-			Date tgkthoc, Date tgbddk, Date tgktdk, double hocphi, String mota, String hinh, boolean daduyet) {
+	public KhoaHoc(List<ThaoLuan> thaoluans, String makh, String tenkh, String makhoa, String maloaikh, Date giobd,
+			Date giokt, Date tgbdhoc, Date tgkthoc, Date tgbddk, Date tgktdk, double hocphi, String mota, String hinh,
+			boolean daduyet) {
 		super();
+		this.thaoluans = thaoluans;
 		this.makh = makh;
 		this.tenkh = tenkh;
 		this.makhoa = makhoa;
@@ -73,6 +81,14 @@ public class KhoaHoc {
 		this.mota = mota;
 		this.hinh = hinh;
 		this.daduyet = daduyet;
+	}
+
+	public List<ThaoLuan> getThaoluans() {
+		return thaoluans;
+	}
+
+	public void setThaoluans(List<ThaoLuan> thaoluans) {
+		this.thaoluans = thaoluans;
 	}
 
 	public String getMakh() {

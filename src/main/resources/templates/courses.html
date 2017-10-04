@@ -73,9 +73,9 @@
 							class="fa fa-star-half-full"> </i>
 					</div>
 					<p th:text="${kh.mota}" class="card-text">mo ta</p>
-					<p th:text="${kh.hocphi}" class="d-flex justify-content-end h5">mo ta</p>
+					<p th:text="${kh.hocphi}" class="d-flex justify-content-end h5">hoc phi</p>
 					<p class="card-text">
-						<i class="fa fa-calendar"></i> <span th:text="${kh.tgbddk}"
+						<i class="fa fa-calendar"></i> <span th:text="${#dates.format(kh.tgbddk, 'dd/MM/yyyy HH:mm:ss')}"
 							th:remove="tag"></span>
 					</p>
 					<!-- <p class="card-text"><i class="fa fa-calendar"></i> <span th:text="${kh.tgktdk}" th:remove="tag"></span></p> -->
@@ -126,13 +126,5 @@
 	<!--/.Pagination--> <!--./ code here --> </main>
 	<!--/.Content-->
 	<footer th:replace="homelayout :: footer"></footer>
-	<script>
-        // init bootpag
-        $('#page-selection').bootpag({
-            total: 10
-        }).on("page", function(event, /* page number here */ num){
-             $("#content").html("Insert content"); // some ajax content loading...
-        });
-    </script>
 </body>
 </html>

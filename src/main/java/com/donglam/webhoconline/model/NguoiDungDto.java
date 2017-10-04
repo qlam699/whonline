@@ -22,9 +22,9 @@ public class NguoiDungDto {
 
 	private String email;
 
-	private String password;
+	private String matkhau;
 
-	private String avatar;
+	private String hinh;
 
 	private String mota;
 	
@@ -34,7 +34,7 @@ public class NguoiDungDto {
 	}
 
 	public NguoiDungDto(String mand, String hovatenlot, String ten, boolean phai, Date ngaysinh, String diachi,
-			String cmnd, String email, String password, String avatar, String mota, List<NdQuyen> ndQuyens) {
+			String cmnd, String email, String matkhau, String hinh, String mota, List<NdQuyen> ndQuyens) {
 		super();
 		this.mand = mand;
 		this.hovatenlot = hovatenlot;
@@ -44,17 +44,9 @@ public class NguoiDungDto {
 		this.diachi = diachi;
 		this.cmnd = cmnd;
 		this.email = email;
-		this.password = password;
-		this.avatar = avatar;
+		this.matkhau = matkhau;
+		this.hinh = hinh;
 		this.mota = mota;
-		this.ndQuyens = ndQuyens;
-	}
-
-	public List<NdQuyen> getNdQuyens() {
-		return ndQuyens;
-	}
-
-	public void setNdQuyens(List<NdQuyen> ndQuyens) {
 		this.ndQuyens = ndQuyens;
 	}
 
@@ -122,20 +114,20 @@ public class NguoiDungDto {
 		this.email = email;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getMatkhau() {
+		return matkhau;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setMatkhau(String matkhau) {
+		this.matkhau = matkhau;
 	}
 
-	public String getAvatar() {
-		return avatar;
+	public String getHinh() {
+		return hinh;
 	}
 
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
+	public void setHinh(String hinh) {
+		this.hinh = hinh;
 	}
 
 	public String getMota() {
@@ -144,6 +136,14 @@ public class NguoiDungDto {
 
 	public void setMota(String mota) {
 		this.mota = mota;
+	}
+
+	public List<NdQuyen> getNdQuyens() {
+		return ndQuyens;
+	}
+
+	public void setNdQuyens(List<NdQuyen> ndQuyens) {
+		this.ndQuyens = ndQuyens;
 	}
 
 }

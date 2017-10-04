@@ -13,7 +13,7 @@ public class LoaiKhoaHocDaoImpl extends GenericDaoImpl<LoaiKhoaHoc, Integer> imp
 	// custom method
 	@Override
 	public List<LoaiKhoaHoc> getListByName(String ten) {
-		Query query = currentSession().createQuery("from loaikhoahoc where loaikhoahoc.tenloaikh =: tenloaikh");
+		Query query = currentSession().createQuery("from LoaiKhoaHoc lkh where lkh.tenloaikh=:tenloaikh");
 		query.setParameter("tenloaikh", ten);
 		return currentSession().createCriteria(daoType).list();
 	}
