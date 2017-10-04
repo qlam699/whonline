@@ -126,5 +126,13 @@
 	<!--/.Pagination--> <!--./ code here --> </main>
 	<!--/.Content-->
 	<footer th:replace="homelayout :: footer"></footer>
+	<script>
+        // init bootpag
+        $('#page-selection').bootpag({
+            total: 10
+        }).on("page", function(event, /* page number here */ num){
+             $("#content").html("Insert content"); // some ajax content loading...
+        });
+    </script>
 </body>
 </html>

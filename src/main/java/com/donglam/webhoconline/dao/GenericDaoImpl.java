@@ -53,7 +53,7 @@ public abstract class GenericDaoImpl<E, K extends Serializable> implements Gener
 
 	@Override
 	public void delete(E entity) {
-		currentSession().delete(entity);
+		currentSession().delete(currentSession().merge(entity));
 	}
 
 	@Override

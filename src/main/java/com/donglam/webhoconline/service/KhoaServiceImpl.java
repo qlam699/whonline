@@ -11,6 +11,7 @@ import com.donglam.webhoconline.dao.GenericDao;
 import com.donglam.webhoconline.dao.KhoaDao;
 import com.donglam.webhoconline.model.Khoa;
 @Service
+@Transactional(propagation = Propagation.REQUIRED)
 public class KhoaServiceImpl extends GenericServiceImpl<Khoa, String> implements KhoaService {
 	@Autowired
 	private KhoaDao dao;
@@ -23,7 +24,6 @@ public class KhoaServiceImpl extends GenericServiceImpl<Khoa, String> implements
 
 	// custom method
 	@Override
-	@Transactional(propagation = Propagation.REQUIRED, readOnly = true)
 	public List<Khoa> getListByName(String ten) {
 		return dao.getListByName(ten);
 	}

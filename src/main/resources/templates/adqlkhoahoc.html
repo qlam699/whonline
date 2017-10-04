@@ -2,6 +2,7 @@
 <head th:replace="adlayout :: head"></head>
 <body>
 	<div th:replace="adlayout :: header"></div>
+	<div th:replace="homelayout::modal"></div>
 	<!--Content-->
 	<main class="container-fluid" id="mainad"> <!--./ code here -->
 	<div class="modal-content">
@@ -32,14 +33,26 @@
 							<div class="tab-pane fade in show active" id="panel5"
 								role="tabpanel">
 								<br />
-								<button class="btn btn-primary" id="btnrow">Rows</button>
+								<div class="rowbtn">
+									<button class="btn btn-sm btn-success" data-target=".modal"
+										data-toggle="modal" href="khoa/create">
+										<i class="fa fa-plus mr-1"></i>Add
+									</button>
+									<button disabled="disabled" class="btn btn-sm btn-warning"
+										data-target=".modal" data-toggle="modal" id="editkhoa">
+										<i class="fa fa-magic mr-1"></i>Edit
+									</button>
+									<button disabled="disabled" class="btn btn-sm btn-danger"
+										data-target=".modal" data-toggle="modal" id="deletekhoa">
+										<i class="fa fa-trash mr-1"></i>Delete
+									</button>
+								</div>
 								<table width="100%" cellspacing="0"
 									class="table table-hover responsive nowrap" id="tbkhoa">
 									<thead>
 										<tr>
 											<th class="rgba-teal-strong">Mã Khoa</th>
 											<th class="rgba-teal-strong">Tên Khoa</th>
-
 										</tr>
 									</thead>
 									<tbody>
@@ -56,7 +69,16 @@
 							<!--Panel 2-->
 							<div class="tab-pane fade" id="panel6" role="tabpanel">
 								<br />
-								<button class="btn btn-primary" id="btnrow">Rows</button>
+								<div class="rowbtn">
+									<a class="btn btn-sm btn-success" data-target=".modal"
+										data-toggle="modal" href="loginregister"><i
+										class="fa fa-plus mr-1"></i>Add</a> <a class="btn btn-sm btn-info"
+										data-target=".modal" data-toggle="modal" href="loginregister"><i
+										class="fa fa-magic mr-1"></i>Edit</a> <a
+										class="btn btn-sm btn-danger" data-target=".modal"
+										data-toggle="modal" href="loginregister"><i
+										class="fa fa-trash mr-1"></i>Delete</a>
+								</div>
 								<table width="100%" cellspacing="0"
 									class="table table-hover responsive nowrap" id="tbloaikh">
 									<thead>
@@ -80,7 +102,16 @@
 							<!--Panel 3-->
 							<div class="tab-pane fade" id="panel7" role="tabpanel">
 								<br />
-								<button class="btn btn-primary" id="btnrow">Rows</button>
+								<div class="rowbtn">
+									<a class="btn btn-sm btn-success" data-target=".modal"
+										data-toggle="modal" href="loginregister"><i
+										class="fa fa-plus mr-1"></i>Add</a> <a class="btn btn-sm btn-info"
+										data-target=".modal" data-toggle="modal" href="loginregister"><i
+										class="fa fa-magic mr-1"></i>Edit</a> <a
+										class="btn btn-sm btn-danger" data-target=".modal"
+										data-toggle="modal" href="loginregister"><i
+										class="fa fa-trash mr-1"></i>Delete</a>
+								</div>
 								<table width="100%" cellspacing="0"
 									class="table table-hover responsive nowrap" id="tbkh">
 									<thead>
@@ -133,10 +164,16 @@
 	</main>
 	<footer th:replace="adlayout :: footer"></footer>
 	<script>
-		// Material Select Initialization
-		var editor;
+		// Material Select Initialization		
 		$(document).ready(
+				
 				function() {
+					//message alert
+					var m=$('#message').val();
+					if(m!=""){
+						   toastr["success"](m);
+					}
+					//
 					$('.mdb-select').material_select();
 					$('#datepicker').datepicker({
 						format : "dd/mm/yyyy"
@@ -148,66 +185,32 @@
 						e.preventDefault();
 						$("#wrapper").toggleClass("active");
 					});
-					//editor
-					editor = new $.fn.dataTable.Editor({
-						ajax : "../khoahoc/save",
-						table : "#tbkhoa",
-						fields : [ {
-							label : "Tên Khoa:",
-							name : "tenkhoa"
-						} ]
-					});
-					// Activate an inline edit on click of a table cell
-				    $('#tbkhoa').on( 'click', 'tbody td:not(:first-child)', function (e) {
-				        editor.inline( this );
-				    } );
 					//Table
-					var table = $('table').DataTable(
+					var tbkhoa = $('#tbkhoa').DataTable(
 							{
 								dom : 'Bfrtip',
 								select : {
-									style : 'multi',
-									selector: 'td:first-child'
+									style : 'single' //'multi',
+								// selector : 'td:first-child'
 								},
 								lengthMenu : [
 										[ 10, 25, 50, -1 ],
 										[ '10 rows', '25 rows', '50 rows',
 												'Show all' ] ],
-								/* ajax: "../php/staff.php",
-								 columns: [ {
-								        data: null,
-								        render: function(data, type, row) {
-								            // Combine the first and last names into a single table field
-								            return data.first_name + ' ' + data.last_name;
-								        }
-								    }, 
-								    { data: "tenkhoa" }
-								    
-								   // { data: "salary", render: $.fn.dataTable.render.number(',', '.', 0, '$') }
-								], */
-								buttons : [ {
-									extend : "create",
-									editor : editor
-								}, {
-									extend : "edit",
-									editor : editor
-								}, {
-									extend : "remove",
-									editor : editor
-								}, 'pageLength', {
+								buttons : [ 'pageLength', {
 									text : 'Select All',
 									className : '',
 									counter : true,
 									action : function(e, dt, node, config) {
 										if (config.counter) {
 											this.text('Select None');
-											table.rows({
+											tbkhoa.rows({
 												page : 'current'
 											}).select();
 											config.counter = false;
 										} else {
 											this.text('Select All');
-											table.rows({
+											tbkhoa.rows({
 												page : 'current'
 											}).deselect();
 											config.counter = true;
@@ -218,10 +221,117 @@
 									extend : 'colvis',
 									collectionLayout : 'fixed two-column'
 								} ]
+							});
+					//Table
+					var tbkh = $('#tbkh').DataTable(
+							{
+								dom : 'Bfrtip',
+								select : {
+									style : 'multi',
+									selector : 'td:first-child'
+								},
+								lengthMenu : [
+										[ 10, 25, 50, -1 ],
+										[ '10 rows', '25 rows', '50 rows',
+												'Show all' ] ],
+								buttons : [ 'pageLength', {
+									text : 'Select All',
+									className : '',
+									counter : true,
+									action : function(e, dt, node, config) {
+										if (config.counter) {
+											this.text('Select None');
+											tbkh.rows({
+												page : 'current'
+											}).select();
+											config.counter = false;
+										} else {
+											this.text('Select All');
+											tbkh.rows({
+												page : 'current'
+											}).deselect();
+											config.counter = true;
+										}
+
+									}
+								}, {
+									extend : 'colvis',
+									collectionLayout : 'fixed two-column'
+								} ]
+							});
+					//Table
+					var tbloaikh = $('#tbloaikh').DataTable(
+							{
+								dom : 'Bfrtip',
+								select : {
+									style : 'multi',
+									selector : 'td:first-child'
+								},
+								lengthMenu : [
+										[ 10, 25, 50, -1 ],
+										[ '10 rows', '25 rows', '50 rows',
+												'Show all' ] ],
+								buttons : [ 'pageLength', {
+									text : 'Select All',
+									className : '',
+									counter : true,
+									action : function(e, dt, node, config) {
+										if (config.counter) {
+											this.text('Select None');
+											tbloaikh.rows({
+												page : 'current'
+											}).select();
+											config.counter = false;
+										} else {
+											this.text('Select All');
+											tbloaikh.rows({
+												page : 'current'
+											}).deselect();
+											config.counter = true;
+										}
+
+									}
+								}, {
+									extend : 'colvis',
+									collectionLayout : 'fixed two-column'
+								} ]
+							});
+					/* if ( tbkhoa.rows( '.selected' ).any() ){
+						$('#editkhoa').removeAttr("disabled");
+					}else{
+						$('#editkhoa').attr('disabled', 'disabled');
+					} */
+					//btn
+					var idkhoa;
+					$('#tbkhoa tbody').on('click', 'tr', function() {
+
+						if ($(this).hasClass('selected')) { //da chon roi thi ko chon nua
+							$('#editkhoa').removeAttr("disabled");
+							$('#deletekhoa').removeAttr("disabled");
+							$(this).removeClass('selected');
+							idkhoa = tbkhoa.row($(this)).data();
+
+						} else {
+							$('#editkhoa').attr('disabled', 'disabled');
+							$('#deletekhoa').attr('disabled', 'disabled');
+							table.$('tr.selected').removeClass('selected');
+							$(this).addClass('selected');
+
+						}
 					});
-					/* 	$('.buttons-create').click(function(){
-					alert("new");
-				}); */
+					$('#editkhoa').click(function() {
+						$(this).attr('href','khoa/'+idkhoa[0]+'/edit');
+					});
+					$('#deletekhoa').click(function() {
+						$(this).attr('href','isdelete');
+						setTimeout( //waiting
+								  function() 
+								  {
+									  $('#titledelete').html('Are you sure delete '+ idkhoa[0]);
+									  $('#yesdelete').attr('href','khoa/'+idkhoa[0]+'/delete');
+								  }, 100);
+					});
+					
 				});
 	</script>
 </body>
