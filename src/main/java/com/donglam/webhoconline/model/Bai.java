@@ -12,16 +12,16 @@ public class Bai {
 	@Column(name = "mabai", nullable = false)
 	private String mabai;
 
-	@Column(name = "tenbai", nullable = false)
+	@Column(name = "tenbai", nullable = true)
 	private String tenbai;
 
 	@Column(name = "machuong", nullable = false)
 	private String machuong;
 
-	@Column(name = "noidung", nullable = false)
+	@Column(name = "noidung", nullable = true)
 	private String noidung;
 
-	@Column(name = "trangthai", nullable = false)
+	@Column(name = "trangthai", nullable = true)
 	private boolean trangthai;
 
 	public Bai() {

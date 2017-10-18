@@ -1,0 +1,157 @@
+<meta charset="utf-8" />
+<div class="modal-content">
+	<!--Header-->
+	<div class="modal-header light-blue darken-3 white-text">
+		<h4 class="title">
+			<i class="fa fa-pencil"></i>Edit Khóa Học
+		</h4>
+		<button type="button" class="close waves-effect waves-light"
+			data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true" class="fa fa-remove"></span>
+		</button>
+	</div>
+	<!--Body-->
+	<div class="modal-body mb-0">
+		<form id="myform" class="form-inline pull-right" action="khoahoc/save"
+			th:object="${khoahoc}" th:action="@{/khoahoc/save}" method="POST">
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="makh"
+					class="form-control" th:field="*{makh}" /> <label for="makh"
+					class="">Mã KH</label>
+			</div>
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="tenkh"
+					class="form-control" th:field="*{tenkh}" /> <label for="tenkh"
+					class="">Tên KH</label>
+			</div>
+			<!--Blue select-->
+			<div class="md-form form-sm">
+				<select th:field="*{loaikhoahoc.maloaikh}" id="selectmaloaikh"
+					class="mdb-select colorful-select dropdown-primary"
+					searchable="Search here..">
+					<option class="form-control" th:each="lkh,i : ${listloaikh}"
+						th:value="${lkh.maloaikh}" th:text="${lkh.tenloaikh}">Option
+						1</option>
+				</select>
+			</div>
+			<!--/Blue select-->
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="giobd"
+					class="form-control" th:field="*{giobd}" /> <label for="giodb"
+					class="">Giờ BĐ</label>
+			</div>
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="giokt"
+					class="form-control" th:field="*{giokt}" /> <label for="giokt"
+					class="">Giờ kết thúc</label>
+			</div>
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="tgbdhoc"
+					class="form-control" th:field="*{tgbdhoc}" /> <label for="tgbdhoc"
+					class="">TG BĐ học</label>
+			</div>
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="tgkthoc"
+					class="form-control" th:field="*{tgkthoc}" /> <label for="tgkthoc"
+					class="">TG KT học</label>
+			</div>
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="tgbddk"
+					class="form-control" th:field="*{tgbddk}" /> <label for="tgbddk"
+					class="">TG BĐ Đăng ký</label>
+			</div>
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="tgktdk"
+					class="form-control" th:field="*{tgktdk}" /> <label for="tgktdk"
+					class="">TG KT Đăng ký</label>
+			</div>
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="hocphi"
+					class="form-control" th:field="*{hocphi}" /> <label for="hocphi"
+					class="">Học phí</label>
+			</div>
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="mota"
+					class="form-control" th:field="*{mota}" /> <label for="mota"
+					class="">Mô tả</label>
+			</div>
+			<input type="hidden" id="daduyet" th:value="${daduyet}"
+									th:field="*{daduyet}" />
+			<div class="md-form form-sm">
+				<div class="switch form-control" style="border:0">
+					<label style="position:relative" > Chưa duyệt <input  id="cbdaduyet" type="checkbox" 
+					th:checked="${daduyet}" /> <span class="lever"></span> Đã duyệt
+					</label>
+				</div>
+			</div>
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="hinh"
+					class="form-control" th:field="*{hinh}" /> <label for="hinh"
+					class="">Hình</label>
+			</div>
+			
+			<div class="text-center mt-1-half">
+				<button class="btn btn-info mb-2 waves-effect waves-light">
+					Save <i class="fa fa-send ml-1"></i>
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
+<script>
+	$(function() { //active label
+		if ($('.form-inline input').val() != "") {
+			$('label').each(function() {
+				$(this).addClass('active');
+			});
+		}
+
+		$('#giokt').bootstrapMaterialDatePicker({
+			weekStart : 0,
+			date : false,
+			format : 'HH:mm'
+		});
+		$('#giobd').bootstrapMaterialDatePicker({
+			weekStart : 0,
+			date : false,
+			format : 'HH:mm'
+		}).on('change', function(e, time) {
+			$('#giokt').bootstrapMaterialDatePicker('setMinDate', time);
+		});
+
+		$('#tgkthoc').bootstrapMaterialDatePicker({
+			weekStart : 0,
+			time : false,
+		/* format : 'DD/MM/YYYY' */
+		});
+		$('#tgbdhoc').bootstrapMaterialDatePicker({
+			weekStart : 0,
+			time : false,
+		/* format : 'DD/MM/YYYY' */
+		}).on('change', function(e, date) {
+			$('#tgkthoc').bootstrapMaterialDatePicker('setMinDate', date);
+		});
+
+		$('#tgktdk').bootstrapMaterialDatePicker({
+			weekStart : 0,
+		/* format : 'DD/MM/YYYY HH:mm' */
+		});
+		$('#tgbddk').bootstrapMaterialDatePicker({
+			weekStart : 0,
+		/* format : 'DD/MM/YYYY HH:mm' */
+		}).on('change', function(e, date) {
+			$('#tgktdk').bootstrapMaterialDatePicker('setMinDate', date);
+		});
+		// Material Select Initialization
+		$('.mdb-select').material_select();
+		$('#myform :checkbox').change(function() {
+			var daduyet = $("#daduyet");
+			if (this.checked) {
+				daduyet.val(1);
+			} else {
+				daduyet.val(0);
+			}
+		});
+		
+	});
+</script>

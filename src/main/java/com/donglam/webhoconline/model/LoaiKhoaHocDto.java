@@ -1,21 +1,42 @@
 package com.donglam.webhoconline.model;
 
+import java.util.List;
+
 public class LoaiKhoaHocDto {
+
+	private Khoa khoa;
+	
+	private List<KhoaHoc> khoahocs;
 
 	private String maloaikh;
 
 	private String tenloaikh;
-
-	private String makhoa;
-
+	
 	public LoaiKhoaHocDto() {
 	}
 
-	public LoaiKhoaHocDto(String maloaikh, String tenloaikh, String makhoa) {
+	public LoaiKhoaHocDto(Khoa khoa, List<KhoaHoc> khoahocs, String maloaikh, String tenloaikh) {
 		super();
+		this.khoa = khoa;
+		this.khoahocs = khoahocs;
 		this.maloaikh = maloaikh;
 		this.tenloaikh = tenloaikh;
-		this.makhoa = makhoa;
+	}
+
+	public Khoa getKhoa() {
+		return khoa;
+	}
+
+	public void setKhoa(Khoa khoa) {
+		this.khoa = khoa;
+	}
+
+	public List<KhoaHoc> getKhoahocs() {
+		return khoahocs;
+	}
+
+	public void setKhoahocs(List<KhoaHoc> khoahocs) {
+		this.khoahocs = khoahocs;
 	}
 
 	public String getMaloaikh() {
@@ -32,14 +53,6 @@ public class LoaiKhoaHocDto {
 
 	public void setTenloaikh(String tenloaikh) {
 		this.tenloaikh = tenloaikh;
-	}
-
-	public String getMakhoa() {
-		return makhoa;
-	}
-
-	public void setMakhoa(String makhoa) {
-		this.makhoa = makhoa;
 	}
 
 }

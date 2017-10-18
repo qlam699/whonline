@@ -21,7 +21,7 @@ public class MyAccountController {
 	private NguoiDungService nds;
 
 	@GetMapping("/myaccount")
-	public String courses(Model model) {
+	public String myaccount(Model model) {
 		model.addAttribute("nd", nds.get("ad_1"));
 
 		return "myaccount";

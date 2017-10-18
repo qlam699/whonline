@@ -12,7 +12,7 @@ public class Chuong {
 	@Column(name = "machuong", nullable = false)
 	private String machuong;
 
-	@Column(name = "tenchuong", nullable = false)
+	@Column(name = "tenchuong", nullable = true)
 	private String tenchuong;
 
 	@Column(name = "magt", nullable = false)

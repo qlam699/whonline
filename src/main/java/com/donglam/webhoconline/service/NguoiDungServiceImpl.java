@@ -32,4 +32,14 @@ public class NguoiDungServiceImpl extends GenericServiceImpl<NguoiDung, String> 
 	public List<NguoiDung> getListTeacher() {
 		return dao.getListTeacher();
 	}
+	
+	@Override
+	public List<NguoiDung> getListStudent() {
+		return dao.getListStudent();
+	}
+	
+	@Override
+	public List<NguoiDung> getListTeaStu() {
+		return dao.getListTeaStu();
+	}
 }

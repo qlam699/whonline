@@ -1,7 +1,5 @@
 package com.donglam.webhoconline.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,19 +15,19 @@ public class TinNhan {
 	@Column(name = "matn", nullable = false)
 	private int matn;
 
-	@Column(name = "tieude", nullable = false)
+	@Column(name = "tieude", nullable = true)
 	private String tieude;
 
-	@Column(name = "tggui", nullable = false)
-	private Date tggui;
+	@Column(name = "tggui", nullable = true)
+	private String tggui;
 
-	@Column(name = "noidung", nullable = false)
+	@Column(name = "noidung", nullable = true)
 	private String noidung;
 
 	public TinNhan() {
 	}
 
-	public TinNhan(int matn, String tieude, Date tggui, String noidung) {
+	public TinNhan(int matn, String tieude, String tggui, String noidung) {
 		super();
 		this.matn = matn;
 		this.tieude = tieude;
@@ -53,11 +51,11 @@ public class TinNhan {
 		this.tieude = tieude;
 	}
 
-	public Date getTggui() {
+	public String getTggui() {
 		return tggui;
 	}
 
-	public void setTggui(Date tggui) {
+	public void setTggui(String tggui) {
 		this.tggui = tggui;
 	}
 
@@ -68,5 +66,5 @@ public class TinNhan {
 	public void setNoidung(String noidung) {
 		this.noidung = noidung;
 	}
-
+	
 }

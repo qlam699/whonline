@@ -1,0 +1,161 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="adlayout :: head"></head>
+<body>
+	<div th:replace="adlayout :: header"></div>
+	<div th:replace="homelayout::modal"></div>
+	<!--Content-->
+	<main class="container-fluid" id="mainad"> <!--./ code here -->
+	<div class="modal-content">
+		<div class="modal-body" style="margin-top: 54px">
+			<div id="wrapper">
+				<div th:replace="adlayout :: sidebar"></div>
+				<div id="page-content-wrapper">
+					<h1 id="home" class="text-center font-bold mt-1">Teacher management</h1>
+					<!--Grid column-->
+					<div class="mb-r container-fluid">
+						<br />
+						<div class="rowbtn">
+							<button class="btn btn-sm btn-success" data-target=".modal"
+								data-toggle="modal" href="giangvien/create">
+								<i class="fa fa-plus mr-1"></i>Add
+							</button>
+							<button disabled="disabled" class="btn btn-sm btn-warning"
+								data-target=".modal" data-toggle="modal" id="editgv">
+								<i class="fa fa-magic mr-1"></i>Edit
+							</button>
+							<button disabled="disabled" class="btn btn-sm btn-danger"
+								data-target=".modal" data-toggle="modal" id="deletegv">
+								<i class="fa fa-trash mr-1"></i>Delete
+							</button>
+						</div>
+						<table width="100%" cellspacing="0"
+							class="table table-hover responsive nowrap" id="tbgv">
+							<thead>
+								<tr>
+									<th class="rgba-teal-strong">ID</th>
+									<th class="rgba-teal-strong">First name</th>
+									<th class="rgba-teal-strong">Last name and Middle name</th>
+									<th class="rgba-teal-strong">Sex</th>
+									<th class="rgba-teal-strong">Date of birth</th>
+									<th class="rgba-teal-strong">Address</th>
+									<th class="rgba-teal-strong">Identity card number</th>
+									<th class="rgba-teal-strong">Email</th>
+									<th class="rgba-teal-strong">Password</th>
+									<th class="rgba-teal-strong">Avatar</th>
+									<th class="rgba-teal-strong">Description</th>
+						
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="nd,i : ${dsgv}" class="odd gradeX">
+									<td th:text="${nd.mand}">ID</td>
+									<td th:text="${nd.ten}">First name</td>
+									<td th:text="${nd.hovatenlot}">Last name and Middle name</td>
+									<td th:text="(${nd.phai}) ? 'Female' : 'Male'">Sex</td>
+									<td th:text="${nd.ngaysinh}">Date of birth</td>
+									<td th:text="${nd.diachi}">Address</td>
+									<td th:text="${nd.cmnd}">Identity card number</td>
+									<td th:text="${nd.email}">Email</td>
+									<td th:text="${nd.matkhau}">Password</td>
+									<td th:text="${nd.hinh}">Avatar</td>
+									<td th:text="${nd.mota}">Description</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--Grid column-->
+				</div>
+			</div>
+		</div>
+	</div>
+	</main>
+	<footer th:replace="adlayout :: footer"></footer>
+	<script>
+		// Material Select Initialization		
+		$(document).ready(
+				function() {
+					//message alert
+					var m = $('#message').val();
+					if (m != "") {
+						toastr["success"](m);
+					}
+					//
+					$('.mdb-select').material_select();
+					// SideNav Initialization
+					$(".button-collapse").sideNav();
+					/*Menu-toggle*/
+					$("#menu-toggle").click(function(e) {
+						e.preventDefault();
+						$("#wrapper").toggleClass("active");
+					});
+					//Table
+					var tbgv = $('#tbgv').DataTable(
+							{
+								dom : 'Bfrtip',
+								select : {
+									style : 'single' //'multi',
+								// selector : 'td:first-child'
+								},
+								lengthMenu : [
+										[ 10, 25, 50, -1 ],
+										[ '10 rows', '25 rows', '50 rows',
+												'Show all' ] ],
+								buttons : [ 'pageLength', {
+									text : 'Select All',
+									className : '',
+									counter : true,
+									action : function(e, dt, node, config) {
+										if (config.counter) {
+											this.text('Select None');
+											tbgv.rows({
+												page : 'current'
+											}).select();
+											config.counter = false;
+										} else {
+											this.text('Select All');
+											tbgv.rows({
+												page : 'current'
+											}).deselect();
+											config.counter = true;
+										}
+									}
+								}, {
+									extend : 'colvis',
+									collectionLayout : 'fixed two-column'
+								} ]
+							});
+
+					var idgv;
+					$('#tbgv tbody').on('click', 'tr', function() {
+						if ($(this).hasClass('selected')) { //da chon roi thi ko chon nua
+							$('#editgv').removeAttr("disabled");
+							$('#deletegv').removeAttr("disabled");
+							$(this).removeClass('selected');
+							idgv = tbgv.row($(this)).data();
+						} else {
+							$('#editgv').attr('disabled', 'disabled');
+							$('#deletegv').attr('disabled', 'disabled');
+							table.$('tr.selected').removeClass('selected');
+							$(this).addClass('selected');
+						}
+					});
+					$('#editgv').click(function() {
+						$(this).attr('href', 'giangvien/' + idgv[0] + '/edit');
+					});
+					$('#deletegv').click(
+							function() {
+								$(this).attr('href', 'isdelete');
+								setTimeout(
+								//waiting
+								function() {
+									$('#titledelete').html(
+											'Are you sure delete ' + idgv[0]);
+									$('#yesdelete').attr('href',
+											'giangvien/' + idgv[0] + '/delete');
+								}, 100);
+							});
+
+				});
+	</script>
+</body>
+</html>

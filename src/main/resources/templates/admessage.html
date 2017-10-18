@@ -10,38 +10,47 @@
 			<div id="wrapper">
 				<div th:replace="adlayout :: sidebar"></div>
 				<div id="page-content-wrapper">
-                        <h1 id="home" class="text-center font-bold mt-1">
-                            Quản lý tin nhắn
-                        </h1>
-                        <!--Grid column-->
-                        <div class="mb-r container-fluid">
-                            <button class="btn btn-primary" id="btnrow">Rows</button>
-                            <table width="100%" cellspacing="0" class="table table-hover responsive nowrap" id="tbkhoa">
-                                <thead>
-                                    <tr>
-                                        <th class="rgba-teal-strong">Mã TN</th>
-                                        <th class="rgba-teal-strong">Tiêu đề</th>
-                                        <th class="rgba-teal-strong">Ngày gửi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="odd gradeX">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 4.0</td>
-                                        <td>Trident</td>
-
-                                    </tr>
-                                    <tr class="odd gradeX">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 4.0</td>
-                                        <td>Trident</td>
-
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!--Grid column-->
-                    </div>
+					<h1 id="home" class="text-center font-bold mt-1">Quản lý Tin
+						nhắn</h1>
+					<!--Grid column-->
+					<div class="mb-r container-fluid">
+						<br />
+						<div class="rowbtn">
+							<button class="btn btn-sm btn-success" data-target=".modal"
+								data-toggle="modal" href="tinnhan/create">
+								<i class="fa fa-plus mr-1"></i>Add
+							</button>
+							<button disabled="disabled" class="btn btn-sm btn-warning"
+								data-target=".modal" data-toggle="modal" id="edittn">
+								<i class="fa fa-magic mr-1"></i>Edit
+							</button>
+							<button disabled="disabled" class="btn btn-sm btn-danger"
+								data-target=".modal" data-toggle="modal" id="deletetn">
+								<i class="fa fa-trash mr-1"></i>Delete
+							</button>
+						</div>
+						<table width="100%" cellspacing="0"
+							class="table table-hover responsive nowrap" id="tbtn">
+							<thead>
+								<tr>
+									<th class="rgba-teal-strong">Mã TN</th>
+									<th class="rgba-teal-strong">Tiêu đề</th>
+									<th class="rgba-teal-strong">Ngày gửi</th>
+									<th class="rgba-teal-strong">Nội dung</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="tn,i : ${dstn}" class="odd gradeX">
+									<td th:text="${tn.matn}">Mã TN</td>
+									<td th:text="${tn.tieude}">Tiêu đề</td>
+									<td th:text="${tn.tggui}">Ngày gửi</td>
+									<td th:text="${tn.noidung}">Nội dung</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--Grid column-->
+				</div>
 			</div>
 		</div>
 	</div>
@@ -50,18 +59,14 @@
 	<script>
 		// Material Select Initialization		
 		$(document).ready(
-				
 				function() {
 					//message alert
-					var m=$('#message').val();
-					if(m!=""){
-						   toastr["success"](m);
+					var m = $('#message').val();
+					if (m != "") {
+						toastr["success"](m);
 					}
 					//
 					$('.mdb-select').material_select();
-					$('#datepicker').datepicker({
-						format : "dd/mm/yyyy"
-					});
 					// SideNav Initialization
 					$(".button-collapse").sideNav();
 					/*Menu-toggle*/
@@ -70,7 +75,7 @@
 						$("#wrapper").toggleClass("active");
 					});
 					//Table
-					var tbkhoa = $('#tbkhoa').DataTable(
+					var tbtn = $('#tbtn').DataTable(
 							{
 								dom : 'Bfrtip',
 								select : {
@@ -88,135 +93,58 @@
 									action : function(e, dt, node, config) {
 										if (config.counter) {
 											this.text('Select None');
-											tbkhoa.rows({
+											tbtn.rows({
 												page : 'current'
 											}).select();
 											config.counter = false;
 										} else {
 											this.text('Select All');
-											tbkhoa.rows({
+											tbtn.rows({
 												page : 'current'
 											}).deselect();
 											config.counter = true;
 										}
-
 									}
 								}, {
 									extend : 'colvis',
 									collectionLayout : 'fixed two-column'
 								} ]
 							});
-					//Table
-					var tbkh = $('#tbkh').DataTable(
-							{
-								dom : 'Bfrtip',
-								select : {
-									style : 'multi',
-									selector : 'td:first-child'
-								},
-								lengthMenu : [
-										[ 10, 25, 50, -1 ],
-										[ '10 rows', '25 rows', '50 rows',
-												'Show all' ] ],
-								buttons : [ 'pageLength', {
-									text : 'Select All',
-									className : '',
-									counter : true,
-									action : function(e, dt, node, config) {
-										if (config.counter) {
-											this.text('Select None');
-											tbkh.rows({
-												page : 'current'
-											}).select();
-											config.counter = false;
-										} else {
-											this.text('Select All');
-											tbkh.rows({
-												page : 'current'
-											}).deselect();
-											config.counter = true;
-										}
-
-									}
-								}, {
-									extend : 'colvis',
-									collectionLayout : 'fixed two-column'
-								} ]
-							});
-					//Table
-					var tbloaikh = $('#tbloaikh').DataTable(
-							{
-								dom : 'Bfrtip',
-								select : {
-									style : 'multi',
-									selector : 'td:first-child'
-								},
-								lengthMenu : [
-										[ 10, 25, 50, -1 ],
-										[ '10 rows', '25 rows', '50 rows',
-												'Show all' ] ],
-								buttons : [ 'pageLength', {
-									text : 'Select All',
-									className : '',
-									counter : true,
-									action : function(e, dt, node, config) {
-										if (config.counter) {
-											this.text('Select None');
-											tbloaikh.rows({
-												page : 'current'
-											}).select();
-											config.counter = false;
-										} else {
-											this.text('Select All');
-											tbloaikh.rows({
-												page : 'current'
-											}).deselect();
-											config.counter = true;
-										}
-
-									}
-								}, {
-									extend : 'colvis',
-									collectionLayout : 'fixed two-column'
-								} ]
-							});
-					/* if ( tbkhoa.rows( '.selected' ).any() ){
-						$('#editkhoa').removeAttr("disabled");
-					}else{
-						$('#editkhoa').attr('disabled', 'disabled');
-					} */
-					//btn
-					var idkhoa;
-					$('#tbkhoa tbody').on('click', 'tr', function() {
-
+					
+					var idtn;
+					$('#tbtn tbody').on('click', 'tr', function() {
 						if ($(this).hasClass('selected')) { //da chon roi thi ko chon nua
-							$('#editkhoa').removeAttr("disabled");
-							$('#deletekhoa').removeAttr("disabled");
+							$('#edittn').removeAttr("disabled");
+							$('#deletetn').removeAttr("disabled");
 							$(this).removeClass('selected');
-							idkhoa = tbkhoa.row($(this)).data();
-
+							idtn = tbtn.row($(this)).data();
 						} else {
-							$('#editkhoa').attr('disabled', 'disabled');
-							$('#deletekhoa').attr('disabled', 'disabled');
+							$('#edittn').attr('disabled', 'disabled');
+							$('#deletetn').attr('disabled', 'disabled');
 							table.$('tr.selected').removeClass('selected');
 							$(this).addClass('selected');
-
 						}
 					});
-					$('#editkhoa').click(function() {
-						$(this).attr('href','khoa/'+idkhoa[0]+'/edit');
+					 $('#edittn').click(function() {
+						$(this).attr('href', 'tinnhan/' + idtn[0] + '/edit');
 					});
-					$('#deletekhoa').click(function() {
-						$(this).attr('href','isdelete');
-						setTimeout( //waiting
-								  function() 
-								  {
-									  $('#titledelete').html('Are you sure delete '+ idkhoa[0]);
-									  $('#yesdelete').attr('href','khoa/'+idkhoa[0]+'/delete');
-								  }, 100);
-					});
-					
-				});
+					$('#deletetn').click(
+							function() {
+								$(this).attr('href', 'isdelete');
+								setTimeout(
+										//waiting
+										function() {
+											$('#titledelete').html(
+													'Are you sure delete '
+															+ idtn[0]);
+											$('#yesdelete').attr(
+													'href',
+													'tinnhan/' + idtn[0]
+															+ '/delete');
+										}, 100);
+							});
+
+				}); 
 	</script>
 </body>
 </html>

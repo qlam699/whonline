@@ -20,7 +20,7 @@ public class Quyen {
 	@Column(name = "maquyen", nullable = false)
 	private int maquyen;
 
-	@Column(name = "tenquyen", nullable = false)
+	@Column(name = "tenquyen", nullable = true)
 	private String tenquyen;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ndquyenid.quyen")

@@ -1,0 +1,61 @@
+<meta charset="utf-8" />
+<div class="modal-content">
+	<!--Header-->
+	<div class="modal-header light-blue darken-3 white-text">
+		<h4 class="title">
+			<i class="fa fa-pencil"></i>Edit Loại khóa Học
+		</h4>
+		<button type="button" class="close waves-effect waves-light"
+			data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true" class="fa fa-remove"></span>
+		</button>
+	</div>
+	<!--Body-->
+	<div class="modal-body mb-0">
+		<form class="form-inline pull-right" action="loaikh/save"
+			th:object="${loaikh}" th:action="@{/loaikh/save}" method="POST">
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="maloaikh"
+					class="form-control" th:field="*{maloaikh}" /> <label
+					for="maloaikh" class="">Mã Loại Khóa Học</label>
+			</div>
+			<!--Blue select-->
+			<div class="md-form form-sm">
+				<select th:field="*{khoa.makhoa}" id="selectmakhoa"
+					class="mdb-select colorful-select dropdown-primary"
+					searchable="Search here..">
+						<option class="form-control" th:each="khoa,i : ${listkhoa}"
+							th:value="${khoa.makhoa}" th:text="${khoa.tenkhoa}">Option 1</option>		
+				</select>
+			</div>
+			<!--/Blue select-->
+			<!-- <div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="makhoa"
+					class="form-control" th:field="*{khoa.makhoa}" /> <label
+					for="makhoa" class="">Mã Khoa</label>
+			</div> -->
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="tenloaikh"
+					class="form-control" th:field="*{tenloaikh}" /> <label
+					for="tenloaikh" class="">Tên Loại Khóa Học</label>
+			</div>
+
+			<div class="text-center mt-1-half">
+				<button class="btn btn-info mb-2 waves-effect waves-light">
+					Save <i class="fa fa-send ml-1"></i>
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
+<script>
+	$(function() { //active label
+		if ($('.form-inline input').val() != "") {
+			$('label').each(function() {
+				$(this).addClass('active');
+			});
+		}
+		// Material Select Initialization
+		$('.mdb-select').material_select();
+	});
+</script>

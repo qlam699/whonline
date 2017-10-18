@@ -1,7 +1,5 @@
 package com.donglam.webhoconline.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,28 +15,28 @@ public class Files {
 	@Column(name = "mafile", nullable = false)
 	private int mafile;
 
-	@Column(name = "tenfile", nullable = false)
+	@Column(name = "tenfile", nullable = true)
 	private String tenfile;
 
-	@Column(name = "dungluong", nullable = false)
+	@Column(name = "dungluong", nullable = true)
 	private String dungluong;
 
-	@Column(name = "ngaydang", nullable = false)
-	private Date ngaydang;
+	@Column(name = "ngaydang", nullable = true)
+	private String ngaydang;
 
 	@Column(name = "nguoidang", nullable = false)
 	private String nguoidang;
 	
-	@Column(name = "url", nullable = false)
+	@Column(name = "url", nullable = true)
 	private String url;
 
-	@Column(name = "mota", nullable = false)
+	@Column(name = "mota", nullable = true)
 	private String mota;
 
 	public Files() {
 	}
 
-	public Files(int mafile, String tenfile, String dungluong, Date ngaydang, String nguoidang, String url,
+	public Files(int mafile, String tenfile, String dungluong, String ngaydang, String nguoidang, String url,
 			String mota) {
 		super();
 		this.mafile = mafile;
@@ -74,11 +72,11 @@ public class Files {
 		this.dungluong = dungluong;
 	}
 
-	public Date getNgaydang() {
+	public String getNgaydang() {
 		return ngaydang;
 	}
 
-	public void setNgaydang(Date ngaydang) {
+	public void setNgaydang(String ngaydang) {
 		this.ngaydang = ngaydang;
 	}
 

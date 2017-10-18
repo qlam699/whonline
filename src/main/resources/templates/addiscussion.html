@@ -1,0 +1,158 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="adlayout :: head"></head>
+<body>
+	<div th:replace="adlayout :: header"></div>
+	<div th:replace="homelayout::modal"></div>
+	<!--Content-->
+	<main class="container-fluid" id="mainad"> <!--./ code here -->
+	<div class="modal-content">
+		<div class="modal-body" style="margin-top: 54px">
+			<div id="wrapper">
+				<div th:replace="adlayout :: sidebar"></div>
+				<div id="page-content-wrapper">
+					<h1 id="home" class="text-center font-bold mt-1">Quản lý Thảo
+						luận</h1>
+					<!--Grid column-->
+					<div class="mb-r container-fluid">
+						<br />
+						<div class="rowbtn">
+							<button class="btn btn-sm btn-success" data-target=".modal"
+								data-toggle="modal" href="thaoluan/create">
+								<i class="fa fa-plus mr-1"></i>Add
+							</button>
+							<button disabled="disabled" class="btn btn-sm btn-warning"
+								data-target=".modal" data-toggle="modal" id="edittl">
+								<i class="fa fa-magic mr-1"></i>Edit
+							</button>
+							<button disabled="disabled" class="btn btn-sm btn-danger"
+								data-target=".modal" data-toggle="modal" id="deletetl">
+								<i class="fa fa-trash mr-1"></i>Delete
+							</button>
+						</div>
+						<table width="100%" cellspacing="0"
+							class="table table-hover responsive nowrap" id="tbtl">
+							<thead>
+								<tr>
+									<th class="rgba-teal-strong">Người đăng</th>
+									<th class="rgba-teal-strong">Thời gian đăng</th>
+									<th class="rgba-teal-strong">Nội dung</th>
+									<th class="rgba-teal-strong">Mã KH</th>
+									<th class="rgba-teal-strong">Mã TL</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="tl,i : ${dstl}" class="odd gradeX">
+									<td th:text="${tl.thaoluanid.nguoidang}">Người đăng</td>
+									<td th:text="${tl.thaoluanid.tgdang}">Thời gian đăng</td>
+									<td th:text="${tl.noidung}">Nội dung</td>
+									<td th:text="${tl.khoahoc.makh}">Mã KH</td>
+									<td th:text="${tl.matl}">Mã TL</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--Grid column-->
+				</div>
+			</div>
+		</div>
+	</div>
+	</main>
+	<footer th:replace="adlayout :: footer"></footer>
+	<script>
+		// Material Select Initialization		
+		$(document).ready(
+				function() {
+					//message alert
+					var m = $('#message').val();
+					if (m != "") {
+						toastr["success"](m);
+					}
+
+					// SideNav Initialization
+					$(".button-collapse").sideNav();
+					/*Menu-toggle*/
+					$("#menu-toggle").click(function(e) {
+						e.preventDefault();
+						$("#wrapper").toggleClass("active");
+					});
+					//Table
+					var tbtl = $('#tbtl').DataTable(
+							{
+								dom : 'Bfrtip',
+								select : {
+									style : 'single' //'multi',
+								// selector : 'td:first-child'
+								},
+								lengthMenu : [
+										[ 10, 25, 50, -1 ],
+										[ '10 rows', '25 rows', '50 rows',
+												'Show all' ] ],
+								buttons : [ 'pageLength', {
+									text : 'Select All',
+									className : '',
+									counter : true,
+									action : function(e, dt, node, config) {
+										if (config.counter) {
+											this.text('Select None');
+											tbtl.rows({
+												page : 'current'
+											}).select();
+											config.counter = false;
+										} else {
+											this.text('Select All');
+											tbtl.rows({
+												page : 'current'
+											}).deselect();
+											config.counter = true;
+										}
+									}
+								}, {
+									extend : 'colvis',
+									collectionLayout : 'fixed two-column'
+								} ]
+							});
+
+					var idtl, dt;
+					$('#tbtl tbody').on('click', 'tr', function() {
+						if ($(this).hasClass('selected')) { //da chon roi thi ko chon nua
+							$('#edittl').removeAttr("disabled");
+							$('#deletetl').removeAttr("disabled");
+							$(this).removeClass('selected');
+							idtl = tbtl.row($(this)).data();
+						} else {
+							$('#edittl').attr('disabled', 'disabled');
+							$('#deletetl').attr('disabled', 'disabled');
+							table.$('tr.selected').removeClass('selected');
+							$(this).addClass('selected');
+						}
+					});
+					$('#edittl').click(
+							function() {
+								dt = idtl[1].replace(" ", "z");
+								$(this).attr(
+										'href',
+										'thaoluan/' + idtl[0] + 'z' + dt
+												+ '/edit');
+							});
+					$('#deletetl').click(
+							function() {
+								dt = idtl[1].replace(" ", "z");
+								$(this).attr('href', 'isdelete');
+								setTimeout(
+								//waiting
+								function() {
+									$('#titledelete').html(
+											'Are you sure delete ' + idtl[0]
+													+ " " + idtl[1]);
+
+									$('#yesdelete').attr(
+											'href',
+											'thaoluan/' + idtl[0] + 'z' + dt
+													+ '/delete');
+								}, 100);
+							});
+
+				});
+	</script>
+</body>
+</html>

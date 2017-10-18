@@ -1,7 +1,6 @@
 package com.donglam.webhoconline.model;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -32,7 +31,7 @@ public class NguoiDung {
 
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	@Column(name = "ngaysinh", nullable = true)
-	private Date ngaysinh;
+	private String ngaysinh;
 
 	@Column(name = "diachi", nullable = true)
 	private String diachi;
@@ -58,7 +57,7 @@ public class NguoiDung {
 	public NguoiDung() {
 	}
 
-	public NguoiDung(String mand, String hovatenlot, String ten, boolean phai, Date ngaysinh, String diachi,
+	public NguoiDung(String mand, String hovatenlot, String ten, boolean phai, String ngaysinh, String diachi,
 			String cmnd, String email, String matkhau, String hinh, String mota, List<NdQuyen> ndQuyens) {
 		super();
 		this.mand = mand;
@@ -107,11 +106,11 @@ public class NguoiDung {
 		this.phai = phai;
 	}
 
-	public Date getNgaysinh() {
+	public String getNgaysinh() {
 		return ngaysinh;
 	}
 
-	public void setNgaysinh(Date ngaysinh) {
+	public void setNgaysinh(String ngaysinh) {
 		this.ngaysinh = ngaysinh;
 	}
 

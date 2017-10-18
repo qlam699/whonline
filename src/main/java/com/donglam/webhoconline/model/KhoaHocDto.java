@@ -1,31 +1,28 @@
 package com.donglam.webhoconline.model;
 
-import java.util.Date;
 import java.util.List;
 
 public class KhoaHocDto {
 	
 	private List<ThaoLuan> thaoluans;
+	
+	private LoaiKhoaHoc loaikhoahoc;
 
 	private String makh;
 
 	private String tenkh;
 
-	private String makhoa;
+	private String giobd;
 
-	private String maloaikh;
+	private String giokt;
 
-	private Date giobd;
+	private String tgbdhoc;
 
-	private Date giokt;
+	private String tgkthoc;
 
-	private Date tgbdhoc;
+	private String tgbddk;
 
-	private Date tgkthoc;
-
-	private Date tgbddk;
-
-	private Date tgktdk;
+	private String tgktdk;
 
 	private double hocphi;
 
@@ -38,15 +35,14 @@ public class KhoaHocDto {
 	public KhoaHocDto() {
 	}
 
-	public KhoaHocDto(List<ThaoLuan> thaoluans, String makh, String tenkh, String makhoa, String maloaikh, Date giobd,
-			Date giokt, Date tgbdhoc, Date tgkthoc, Date tgbddk, Date tgktdk, double hocphi, String mota, String hinh,
-			boolean daduyet) {
+	public KhoaHocDto(List<ThaoLuan> thaoluans, LoaiKhoaHoc loaikhoahoc, String makh, String tenkh, String giobd,
+			String giokt, String tgbdhoc, String tgkthoc, String tgbddk, String tgktdk, double hocphi, String mota,
+			String hinh, boolean daduyet) {
 		super();
 		this.thaoluans = thaoluans;
+		this.loaikhoahoc = loaikhoahoc;
 		this.makh = makh;
 		this.tenkh = tenkh;
-		this.makhoa = makhoa;
-		this.maloaikh = maloaikh;
 		this.giobd = giobd;
 		this.giokt = giokt;
 		this.tgbdhoc = tgbdhoc;
@@ -67,6 +63,14 @@ public class KhoaHocDto {
 		this.thaoluans = thaoluans;
 	}
 
+	public LoaiKhoaHoc getLoaikhoahoc() {
+		return loaikhoahoc;
+	}
+
+	public void setLoaikhoahoc(LoaiKhoaHoc loaikhoahoc) {
+		this.loaikhoahoc = loaikhoahoc;
+	}
+
 	public String getMakh() {
 		return makh;
 	}
@@ -83,67 +87,51 @@ public class KhoaHocDto {
 		this.tenkh = tenkh;
 	}
 
-	public String getMakhoa() {
-		return makhoa;
-	}
-
-	public void setMakhoa(String makhoa) {
-		this.makhoa = makhoa;
-	}
-
-	public String getMaloaikh() {
-		return maloaikh;
-	}
-
-	public void setMaloaikh(String maloaikh) {
-		this.maloaikh = maloaikh;
-	}
-
-	public Date getGiobd() {
+	public String getGiobd() {
 		return giobd;
 	}
 
-	public void setGiobd(Date giobd) {
+	public void setGiobd(String giobd) {
 		this.giobd = giobd;
 	}
 
-	public Date getGiokt() {
+	public String getGiokt() {
 		return giokt;
 	}
 
-	public void setGiokt(Date giokt) {
+	public void setGiokt(String giokt) {
 		this.giokt = giokt;
 	}
 
-	public Date getTgbdhoc() {
+	public String getTgbdhoc() {
 		return tgbdhoc;
 	}
 
-	public void setTgbdhoc(Date tgbdhoc) {
+	public void setTgbdhoc(String tgbdhoc) {
 		this.tgbdhoc = tgbdhoc;
 	}
 
-	public Date getTgkthoc() {
+	public String getTgkthoc() {
 		return tgkthoc;
 	}
 
-	public void setTgkthoc(Date tgkthoc) {
+	public void setTgkthoc(String tgkthoc) {
 		this.tgkthoc = tgkthoc;
 	}
 
-	public Date getTgbddk() {
+	public String getTgbddk() {
 		return tgbddk;
 	}
 
-	public void setTgbddk(Date tgbddk) {
+	public void setTgbddk(String tgbddk) {
 		this.tgbddk = tgbddk;
 	}
 
-	public Date getTgktdk() {
+	public String getTgktdk() {
 		return tgktdk;
 	}
 
-	public void setTgktdk(Date tgktdk) {
+	public void setTgktdk(String tgktdk) {
 		this.tgktdk = tgktdk;
 	}
 
@@ -178,5 +166,5 @@ public class KhoaHocDto {
 	public void setDaduyet(boolean daduyet) {
 		this.daduyet = daduyet;
 	}
-	
+
 }

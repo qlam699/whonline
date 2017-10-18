@@ -14,7 +14,7 @@ public class ForumController {
     private ThaoLuanService tls;
 	
 	@GetMapping("/forum")
-	public String courses(Model model) {
+	public String forum(Model model) {
 		model.addAttribute("qtl", tls.getQuestion(1));
 		model.addAttribute("rtl", tls.getReply(1));
 		model.addAttribute("crtl", tls.getCountReply(1));

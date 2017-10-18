@@ -1,11 +1,12 @@
 package com.donglam.webhoconline.model;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -16,61 +17,58 @@ public class KhoaHoc {
 	@OneToMany(mappedBy="khoahoc")
 	private List<ThaoLuan> thaoluans;
 	
+	@ManyToOne
+    @JoinColumn(name="maloaikh", nullable=false)
+    private LoaiKhoaHoc loaikhoahoc;
+	
 	@Id
 	@Column(name = "makh", nullable = false)
 	private String makh;
 
-	@Column(name = "tenkh", nullable = false)
+	@Column(name = "tenkh", nullable = true)
 	private String tenkh;
 
-	@Column(name = "makhoa", nullable = false)
-	private String makhoa;
+	@Column(name = "giobd", nullable = true)
+	private String giobd;
 
-	@Column(name = "maloaikh", nullable = false)
-	private String maloaikh;
+	@Column(name = "giokt", nullable = true)
+	private String giokt;
 
-	@Column(name = "giobd", nullable = false)
-	private Date giobd;
+	@Column(name = "tgbdhoc", nullable = true)
+	private String tgbdhoc;
 
-	@Column(name = "giokt", nullable = false)
-	private Date giokt;
+	@Column(name = "tgkthoc", nullable = true)
+	private String tgkthoc;
 
-	@Column(name = "tgbdhoc", nullable = false)
-	private Date tgbdhoc;
+	@Column(name = "tgbddk", nullable = true)
+	private String tgbddk;
 
-	@Column(name = "tgkthoc", nullable = false)
-	private Date tgkthoc;
+	@Column(name = "tgktdk", nullable = true)
+	private String tgktdk;
 
-	@Column(name = "tgbddk", nullable = false)
-	private Date tgbddk;
-
-	@Column(name = "tgktdk", nullable = false)
-	private Date tgktdk;
-
-	@Column(name = "hocphi", nullable = false)
+	@Column(name = "hocphi", nullable = true)
 	private double hocphi;
 
-	@Column(name = "mota", nullable = false)
+	@Column(name = "mota", nullable = true)
 	private String mota;
 
-	@Column(name = "hinh", nullable = false)
+	@Column(name = "hinh", nullable = true)
 	private String hinh;
 
-	@Column(name = "daduyet", nullable = false)
+	@Column(name = "daduyet", nullable = true)
 	private boolean daduyet;
 
 	public KhoaHoc() {
 	}
 
-	public KhoaHoc(List<ThaoLuan> thaoluans, String makh, String tenkh, String makhoa, String maloaikh, Date giobd,
-			Date giokt, Date tgbdhoc, Date tgkthoc, Date tgbddk, Date tgktdk, double hocphi, String mota, String hinh,
-			boolean daduyet) {
+	public KhoaHoc(List<ThaoLuan> thaoluans, LoaiKhoaHoc loaikhoahoc, String makh, String tenkh, String giobd,
+			String giokt, String tgbdhoc, String tgkthoc, String tgbddk, String tgktdk, double hocphi, String mota,
+			String hinh, boolean daduyet) {
 		super();
 		this.thaoluans = thaoluans;
+		this.loaikhoahoc = loaikhoahoc;
 		this.makh = makh;
 		this.tenkh = tenkh;
-		this.makhoa = makhoa;
-		this.maloaikh = maloaikh;
 		this.giobd = giobd;
 		this.giokt = giokt;
 		this.tgbdhoc = tgbdhoc;
@@ -91,6 +89,14 @@ public class KhoaHoc {
 		this.thaoluans = thaoluans;
 	}
 
+	public LoaiKhoaHoc getLoaikhoahoc() {
+		return loaikhoahoc;
+	}
+
+	public void setLoaikhoahoc(LoaiKhoaHoc loaikhoahoc) {
+		this.loaikhoahoc = loaikhoahoc;
+	}
+
 	public String getMakh() {
 		return makh;
 	}
@@ -107,67 +113,51 @@ public class KhoaHoc {
 		this.tenkh = tenkh;
 	}
 
-	public String getMakhoa() {
-		return makhoa;
-	}
-
-	public void setMakhoa(String makhoa) {
-		this.makhoa = makhoa;
-	}
-
-	public String getMaloaikh() {
-		return maloaikh;
-	}
-
-	public void setMaloaikh(String maloaikh) {
-		this.maloaikh = maloaikh;
-	}
-
-	public Date getGiobd() {
+	public String getGiobd() {
 		return giobd;
 	}
 
-	public void setGiobd(Date giobd) {
+	public void setGiobd(String giobd) {
 		this.giobd = giobd;
 	}
 
-	public Date getGiokt() {
+	public String getGiokt() {
 		return giokt;
 	}
 
-	public void setGiokt(Date giokt) {
+	public void setGiokt(String giokt) {
 		this.giokt = giokt;
 	}
 
-	public Date getTgbdhoc() {
+	public String getTgbdhoc() {
 		return tgbdhoc;
 	}
 
-	public void setTgbdhoc(Date tgbdhoc) {
+	public void setTgbdhoc(String tgbdhoc) {
 		this.tgbdhoc = tgbdhoc;
 	}
 
-	public Date getTgkthoc() {
+	public String getTgkthoc() {
 		return tgkthoc;
 	}
 
-	public void setTgkthoc(Date tgkthoc) {
+	public void setTgkthoc(String tgkthoc) {
 		this.tgkthoc = tgkthoc;
 	}
 
-	public Date getTgbddk() {
+	public String getTgbddk() {
 		return tgbddk;
 	}
 
-	public void setTgbddk(Date tgbddk) {
+	public void setTgbddk(String tgbddk) {
 		this.tgbddk = tgbddk;
 	}
 
-	public Date getTgktdk() {
+	public String getTgktdk() {
 		return tgktdk;
 	}
 
-	public void setTgktdk(Date tgktdk) {
+	public void setTgktdk(String tgktdk) {
 		this.tgktdk = tgktdk;
 	}
 

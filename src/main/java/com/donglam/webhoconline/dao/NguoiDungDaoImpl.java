@@ -33,4 +33,26 @@ public class NguoiDungDaoImpl extends GenericDaoImpl<NguoiDung, String> implemen
 		return list;
 	}
 	
+	@Override
+	public List<NguoiDung> getListStudent() {
+		Query query = currentSession().createQuery("from NguoiDung nd join nd.ndQuyens ndq with ndq.ndquyenid.quyen.maquyen=4");
+		List<Object[]> a=query.list();
+		List<NguoiDung> list = new ArrayList<NguoiDung>();
+		for(Object[] x: a) {
+			list.add((NguoiDung)x[0]);
+		}
+		return list;
+	}
+	
+	@Override
+	public List<NguoiDung> getListTeaStu() {
+		Query query = currentSession().createQuery("from NguoiDung nd join nd.ndQuyens ndq with ndq.ndquyenid.quyen.maquyen=3 or ndq.ndquyenid.quyen.maquyen=4");
+		List<Object[]> a=query.list();
+		List<NguoiDung> list = new ArrayList<NguoiDung>();
+		for(Object[] x: a) {
+			list.add((NguoiDung)x[0]);
+		}
+		return list;
+	}
+	
 }

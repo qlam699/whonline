@@ -8,13 +8,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "danhgia")
 public class DanhGia {
+	
 	@EmbeddedId
 	private DanhGiaId danhgiaid;
 
-	@Column(name = "sao", nullable = false)
+	@Column(name = "sao", nullable = true)
 	private double sao;
 
-	@Column(name = "noidung", nullable = false)
+	@Column(name = "noidung", nullable = true)
 	private String noidung;
 
 	public DanhGia() {
@@ -51,5 +52,4 @@ public class DanhGia {
 		this.noidung = noidung;
 	}
 
-	
 }

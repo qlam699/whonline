@@ -35,9 +35,9 @@
 
 								<!--Avatar-->
 								<div class="avatar">
-									<img
+									<img id="imgpreview"
 										src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg"
-										class="rounded-circle img-responsive" />
+										class="img-fluid" style="height: 100%" />
 								</div>
 
 								<div class="card-body">
@@ -45,17 +45,17 @@
 									<h4 class="card-title">Your name</h4>
 									<hr />
 
-									<form action="#">
-										<div class="file-field">
-											<div class="btn btn-primary btn-sm waves-effect waves-light">
-												<span>Choose files</span> <input type="file" />
-											</div>
-											<div class="file-path-wrapper">
-												<input class="file-path validate valid" type="text"
-													placeholder="Upload avatar image" />
-											</div>
-										</div>
-									</form>
+									<div class="file-field">
+										<p>
+											<strong id="xImagePath">Selected Image URL</strong><br /> <input
+												class="btn btn-primary btn-sm waves-effect waves-light"
+												type="button" value="Browse Image"
+												onclick="BrowseServer( 'Images:/', 'xImagePath' );" />
+										</p>
+
+									</div>
+
+									<small>Note: You should select square image !</small>
 								</div>
 
 							</div>
@@ -66,6 +66,8 @@
 							<form id="myform" action="myaccount/save"
 								th:action="@{/myaccount/save}" th:object="${nd}" method="POST">
 								<!--Email validation-->
+								<input type="hidden" id="hinh" class="form-control"
+									th:field="*{hinh}" />
 								<div class="md-form">
 									<i class="fa fa-envelope prefix"></i> <input type="text"
 										id="mand" class="form-control validate" readonly="readonly"
@@ -121,7 +123,7 @@
 								<div class="input-group date">
 									<input type="text" class="form-control" id="ngaysinh"
 										placeholder="Birthday: DD/MM/YYYY" th:field="*{ngaysinh}"
-										th:value="${#dates.format(nd.ngaysinh, 'dd/MM/yyyy')}" />
+										th:value="${nd.ngaysinh}" />
 								</div>
 								<input class="btn btn-default" type="submit" value="Save" />
 							</form>
@@ -220,12 +222,62 @@
 	<!--./ code here --> </main>
 	<!--/.Content-->
 	<footer th:replace="homelayout :: footer"></footer>
-	<script type="text/javascript" src="js/bootstrap-datepicker.min.js"
-		th:src="@{/js/bootstrap-datepicker.min.js}"></script>
+	<script src="ckfinder/ckfinder.js" th:src="@{/ckfinder/ckfinder.js}"></script>
+	<script type="text/javascript" src="js/moment-with-locales.min.js"
+		th:src="@{/js/moment-with-locales.min.js}"></script>
+	<script type="text/javascript"
+		src="js/bootstrap-material-datetimepicker.js"
+		th:src="@{/js/bootstrap-material-datetimepicker.js}"></script>
 	<script>
+		/*Avatar start*/
+		function BrowseServer(startupPath, functionData) {
+			// You can use the "CKFinder" class to render CKFinder in a page:
+			var finder = new CKFinder();
+
+			// The path for the installation of CKFinder (default = "/ckfinder/").
+			finder.basePath = '../';
+
+			//Startup path in a form: "Type:/path/to/directory/"
+			finder.startupPath = startupPath;
+
+			// Name of a function which is called when a file is selected in CKFinder.
+			finder.selectActionFunction = SetFileField;
+
+			// Additional data to be passed to the selectActionFunction in a second argument.
+			// We'll use this feature to pass the Id of a field that will be updated.
+			finder.selectActionData = functionData;
+
+			// Name of a function which is called when a thumbnail is selected in CKFinder. Preview img
+			// finder.selectThumbnailActionFunction = ShowThumbnails;
+
+			// Launch CKFinder
+			finder.popup();
+		}
+
+		// This is a sample function which is called when a file is selected in CKFinder.
+		function SetFileField(fileUrl, data) {
+			document.getElementById(data["selectActionData"]).innerHTML = this
+					.getSelectedFile().name;
+			document.getElementById("imgpreview").src = fileUrl;
+			document.getElementById("hinh").value = fileUrl;
+		}
+
+		// This is a sample function which is called when a thumbnail is selected in CKFinder.
+		/* function ShowThumbnails( fileUrl, data )
+		{
+			// this = CKFinderAPI
+			// var sFileName = this.getSelectedFile().name;
+			document.getElementById("imgpreview").src=fileUrl;
+			// It is not required to return any value.
+			// When false is returned, CKFinder will not close automatically.
+			return false;
+		} */
+		/*Avatar end*/
+
 		$(document).ready(function() {
-			$('#ngaysinh').datepicker({
-				format : "dd/mm/yyyy"
+			$('#ngaysinh').bootstrapMaterialDatePicker({
+				weekStart : 0,
+				time : false
 			});
 			$('#myform :checkbox').change(function() {
 				var phai = $("#phai");

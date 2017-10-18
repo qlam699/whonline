@@ -14,16 +14,16 @@ public class DanhGiaId implements Serializable {
 	@Column(name = "mahv", nullable = false)
 	private String mahv;
 
-	@Column(name = "magv", nullable = false)
-	private String magv;
-
 	@Column(name = "makh", nullable = false)
 	private String makh;
 
+	@Column(name = "magv", nullable = false)
+	private String magv;
+	
 	public DanhGiaId() {
 	}
 
-	public DanhGiaId(String mahv, String magv, String makh) {
+	public DanhGiaId(String mahv, String makh, String magv) {
 		super();
 		this.mahv = mahv;
 		this.magv = magv;

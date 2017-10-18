@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.donglam.webhoconline.model.TinNhan;
 
-public interface TinNhanService extends GenericService<TinNhan, String> {
+public interface TinNhanService extends GenericService<TinNhan, Integer> {
 
 	// custom method
-	public List<TinNhan> getListByName(String ten);
+	public List<TinNhan> getListByTieuDe(String tieude);
 }

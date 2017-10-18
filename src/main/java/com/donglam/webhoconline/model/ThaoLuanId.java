@@ -1,7 +1,6 @@
 package com.donglam.webhoconline.model;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -16,11 +15,11 @@ public class ThaoLuanId implements Serializable{
     private String nguoidang;
  
     @Column(name = "tgdang")
-    private Date tgdang;
+    private String tgdang;
     
     public ThaoLuanId() {}	
 
-	public ThaoLuanId(String nguoidang, Date tgdang) {
+	public ThaoLuanId(String nguoidang, String tgdang) {
 		super();
 		this.nguoidang = nguoidang;
 		this.tgdang = tgdang;
@@ -34,11 +33,11 @@ public class ThaoLuanId implements Serializable{
 		this.nguoidang = nguoidang;
 	}
 
-	public Date getTgdang() {
+	public String getTgdang() {
 		return tgdang;
 	}
 
-	public void setTgdang(Date tgdang) {
+	public void setTgdang(String tgdang) {
 		this.tgdang = tgdang;
 	}
 

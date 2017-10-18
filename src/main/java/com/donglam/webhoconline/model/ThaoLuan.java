@@ -18,7 +18,7 @@ public class ThaoLuan {
 	@EmbeddedId
 	private ThaoLuanId thaoluanid;
 
-	@Column(name = "noidung", nullable = false)
+	@Column(name = "noidung", nullable = true)
 	private String noidung;
 
 	@Column(name = "matl", nullable = false)

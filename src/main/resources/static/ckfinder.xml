@@ -62,7 +62,7 @@
 		<type name="Files">
 			<url>%BASE_URL%files/</url>
 			<directory>%BASE_DIR%files</directory>
-			<maxSize>0</maxSize>
+			<maxSize>100M</maxSize>
 			<allowedExtensions>7z,aiff,asf,avi,bmp,csv,doc,docx,fla,flv,gif,gz,gzip,jpeg,jpg,mid,mov,mp3,mp4,mpc,mpeg,mpg,ods,odt,pdf,png,ppt,pptx,pxd,qt,ram,rar,rm,rmi,rmvb,rtf,sdc,sitd,swf,sxc,sxw,tar,tgz,tif,tiff,txt,vsd,wav,wma,wmv,xls,xlsx,zip
 			</allowedExtensions>
 			<deniedExtensions></deniedExtensions>
@@ -70,24 +70,24 @@
 		<type name="Images">
 			<url>%BASE_URL%images/</url>
 			<directory>%BASE_DIR%images</directory>
-			<maxSize>0</maxSize>
+			<maxSize>10M</maxSize>
 			<allowedExtensions>bmp,gif,jpeg,jpg,png</allowedExtensions>
 			<deniedExtensions></deniedExtensions>
 		</type>
-		<type name="Flash">
+		<!-- <type name="Flash">
 			<url>%BASE_URL%flash/</url>
 			<directory>%BASE_DIR%flash</directory>
 			<maxSize>0</maxSize>
 			<allowedExtensions>swf,flv</allowedExtensions>
 			<deniedExtensions></deniedExtensions>
-		</type>
+		</type> -->
 	</types>
 	<!--
 	The session variable name that CKFinder must use to retrieve
 	the "role" of the current user. The "role", can be used in the "accessControls"
 	settings (bellow).
 	-->
-	<userRoleSessionVar>CKFinder_UserRole</userRoleSessionVar>
+	<userRoleSessionVar>studentRole</userRoleSessionVar>
 	<accessControls>
 		<accessControl>
 			<role>*</role>
@@ -117,7 +117,7 @@
 	If enabled, CKFinder will disallow creating folders and uploading files whose names contain characters 
 	that are not safe under an IIS web server.
 	-->
-	<disallowUnsafeCharacters>false</disallowUnsafeCharacters>
+	<disallowUnsafeCharacters>true</disallowUnsafeCharacters>
 	<!--
 	Due to security issues with Apache modules, it is recommended to leave the
 	following setting enabled.

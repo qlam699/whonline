@@ -1,0 +1,158 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="adlayout :: head"></head>
+<body>
+	<div th:replace="adlayout :: header"></div>
+	<div th:replace="homelayout::modal"></div>
+	<!--Content-->
+	<main class="container-fluid" id="mainad"> <!--./ code here -->
+	<div class="modal-content">
+		<div class="modal-body" style="margin-top: 54px">
+			<div id="wrapper">
+				<div th:replace="adlayout :: sidebar"></div>
+				<div id="page-content-wrapper">
+					<h1 id="home" class="text-center font-bold mt-1">Quản lý Đánh
+						giá</h1>
+					<!--Grid column-->
+					<div class="mb-r container-fluid">
+						<br />
+						<div class="rowbtn">
+							<button class="btn btn-sm btn-success" data-target=".modal"
+								data-toggle="modal" href="danhgia/create">
+								<i class="fa fa-plus mr-1"></i>Add
+							</button>
+							<button disabled="disabled" class="btn btn-sm btn-warning"
+								data-target=".modal" data-toggle="modal" id="editdg">
+								<i class="fa fa-magic mr-1"></i>Edit
+							</button>
+							<button disabled="disabled" class="btn btn-sm btn-danger"
+								data-target=".modal" data-toggle="modal" id="deletedg">
+								<i class="fa fa-trash mr-1"></i>Delete
+							</button>
+						</div>
+						<table width="100%" cellspacing="0"
+							class="table table-hover responsive nowrap" id="tbdg">
+							<thead>
+								<tr>
+									<th class="rgba-teal-strong">Mã HV</th>
+									<th class="rgba-teal-strong">Mã KH</th>
+									<th class="rgba-teal-strong">Mã GV</th>
+									<th class="rgba-teal-strong">Sao</th>
+									<th class="rgba-teal-strong">Nội dung</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="dg,i : ${dsdg}" class="odd gradeX">
+									<td th:text="${dg.danhgiaid.mahv}">Mã HV</td>
+									<td th:text="${dg.danhgiaid.makh}">Mã KH</td>
+									<td th:text="${dg.danhgiaid.magv}">Mã GV</td>
+									<td th:text="${dg.sao}">Sao</td>
+									<td th:text="${dg.noidung}">Nội dung</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--Grid column-->
+				</div>
+			</div>
+		</div>
+	</div>
+	</main>
+	<footer th:replace="adlayout :: footer"></footer>
+	<script>
+		// Material Select Initialization		
+		$(document).ready(
+				function() {
+					//message alert
+					var m = $('#message').val();
+					if (m != "") {
+						toastr["success"](m);
+					}
+					//
+					$('.mdb-select').material_select();
+					// SideNav Initialization
+					$(".button-collapse").sideNav();
+					/*Menu-toggle*/
+					$("#menu-toggle").click(function(e) {
+						e.preventDefault();
+						$("#wrapper").toggleClass("active");
+					});
+					//Table
+					var tbdg = $('#tbdg').DataTable(
+							{
+								dom : 'Bfrtip',
+								select : {
+									style : 'single' //'multi',
+								// selector : 'td:first-child'
+								},
+								lengthMenu : [
+										[ 10, 25, 50, -1 ],
+										[ '10 rows', '25 rows', '50 rows',
+												'Show all' ] ],
+								buttons : [ 'pageLength', {
+									text : 'Select All',
+									className : '',
+									counter : true,
+									action : function(e, dt, node, config) {
+										if (config.counter) {
+											this.text('Select None');
+											tbdg.rows({
+												page : 'current'
+											}).select();
+											config.counter = false;
+										} else {
+											this.text('Select All');
+											tbdg.rows({
+												page : 'current'
+											}).deselect();
+											config.counter = true;
+										}
+									}
+								}, {
+									extend : 'colvis',
+									collectionLayout : 'fixed two-column'
+								} ]
+							});
+
+					var iddg;
+					$('#tbdg tbody').on('click', 'tr', function() {
+						if ($(this).hasClass('selected')) { //da chon roi thi ko chon nua
+							$('#editdg').removeAttr("disabled");
+							$('#deletedg').removeAttr("disabled");
+							$(this).removeClass('selected');
+							iddg = tbdg.row($(this)).data();
+						} else {
+							$('#editdg').attr('disabled', 'disabled');
+							$('#deletedg').attr('disabled', 'disabled');
+							table.$('tr.selected').removeClass('selected');
+							$(this).addClass('selected');
+						}
+					});
+					$('#editdg').click(
+							function() {
+								$(this).attr(
+										'href',
+										'danhgia/' + iddg[0] + 'z' + iddg[1]
+												+ 'z' + iddg[2] + '/edit');
+							});
+					$('#deletedg').click(
+							function() {
+								$(this).attr('href', 'isdelete');
+								setTimeout(
+								//waiting
+								function() {
+									$('#titledelete').html(
+											'Are you sure delete ' + iddg[0]
+													+ ' ' + iddg[1] + ' '
+													+ iddg[2]);
+									$('#yesdelete').attr(
+											'href',
+											'danhgia/' + iddg[0] + 'z'
+													+ iddg[1] + 'z' + iddg[2]
+													+ '/delete');
+								}, 100);
+							});
+
+				});
+	</script>
+</body>
+</html>

@@ -9,7 +9,7 @@ import com.donglam.webhoconline.model.LoaiKhoaHoc;
 
 @SuppressWarnings("unchecked")
 @Repository
-public class LoaiKhoaHocDaoImpl extends GenericDaoImpl<LoaiKhoaHoc, Integer> implements LoaiKhoaHocDao {
+public class LoaiKhoaHocDaoImpl extends GenericDaoImpl<LoaiKhoaHoc, String> implements LoaiKhoaHocDao {
 	// custom method
 	@Override
 	public List<LoaiKhoaHoc> getListByName(String ten) {

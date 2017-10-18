@@ -1,0 +1,78 @@
+<meta charset="utf-8" />
+<div class="modal-content">
+	<!--Header-->
+	<div class="modal-header light-blue darken-3 white-text">
+		<h4 class="title">
+			<i class="fa fa-pencil"></i>Edit Thảo luận
+		</h4>
+		<button type="button" class="close waves-effect waves-light"
+			data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true" class="fa fa-remove"></span>
+		</button>
+	</div>
+	<!--Body-->
+	<div class="modal-body mb-0">
+		<form class="form-inline pull-right" action="thaoluan/save"
+			th:object="${thaoluan}" th:action="@{/thaoluan/save}" method="POST">
+			<!--Blue select-->
+			<div class="md-form form-sm">
+				<select th:field="*{thaoluanid.nguoidang}" id="selectnd"
+					class="mdb-select colorful-select dropdown-primary"
+					searchable="Search here..">
+					<option class="form-control" th:each="nd,i : ${listnd}"
+						th:value="${nd.mand}"
+						th:text="${nd.mand + ' ' + nd.hovatenlot + ' '+ nd.ten}">Option
+						1</option>
+				</select>
+			</div>
+			<!--/Blue select-->
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="tgdang"
+					class="form-control" th:field="*{thaoluanid.tgdang}" /> <label
+					for="tgdang" class="">TG đăng</label>
+			</div>
+			<!--Blue select-->
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="noidung"
+					class="form-control" th:field="*{noidung}" /> <label for="noidung"
+					class="">Nội dung</label>
+			</div>
+			<div class="md-form form-sm">
+				<select th:field="*{khoahoc.makh}" id="selectmakh"
+					class="mdb-select colorful-select dropdown-primary"
+					searchable="Search here..">
+						<option class="form-control" th:each="kh,i : ${listkh}"
+							th:value="${kh.makh}" th:text="${kh.tenkh}">Option 1</option>		
+				</select>
+			</div>
+			<!--/Blue select-->
+
+			<!-- 	<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="matl"
+					class="form-control" th:field="*{matl}" /> <label for="matl"
+					class="">Mã TL</label>
+			</div> -->
+
+			<div class="text-center mt-1-half">
+				<button class="btn btn-info mb-2 waves-effect waves-light">
+					Save <i class="fa fa-send ml-1"></i>
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
+<script>
+	$(function() { //active label
+		if ($('.form-inline input').val() != "") {
+			$('label').each(function() {
+				$(this).addClass('active');
+			});
+		}
+
+		$('#tgdang').bootstrapMaterialDatePicker({
+			weekStart : 0
+		});
+		// Material Select Initialization
+		$('.mdb-select').material_select();
+	});
+</script>

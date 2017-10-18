@@ -1,7 +1,5 @@
 package com.donglam.webhoconline.model;
 
-import java.util.Date;
-
 public class FilesDto {
 
 	private int mafile;
@@ -10,7 +8,7 @@ public class FilesDto {
 
 	private String dungluong;
 
-	private Date ngaydang;
+	private String ngaydang;
 
 	private String nguoidang;
 	
@@ -21,7 +19,7 @@ public class FilesDto {
 	public FilesDto() {
 	}
 
-	public FilesDto(int mafile, String tenfile, String dungluong, Date ngaydang, String nguoidang, String url,
+	public FilesDto(int mafile, String tenfile, String dungluong, String ngaydang, String nguoidang, String url,
 			String mota) {
 		super();
 		this.mafile = mafile;
@@ -57,11 +55,11 @@ public class FilesDto {
 		this.dungluong = dungluong;
 	}
 
-	public Date getNgaydang() {
+	public String getNgaydang() {
 		return ngaydang;
 	}
 
-	public void setNgaydang(Date ngaydang) {
+	public void setNgaydang(String ngaydang) {
 		this.ngaydang = ngaydang;
 	}
 

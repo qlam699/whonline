@@ -1,0 +1,92 @@
+<meta charset="utf-8" />
+<div class="modal-content">
+	<!--Header-->
+	<div class="modal-header light-blue darken-3 white-text">
+		<h4 class="title">
+			<i class="fa fa-pencil"></i>Edit Student
+		</h4>
+		<button type="button" class="close waves-effect waves-light"
+			data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true" class="fa fa-remove"></span>
+		</button>
+	</div>
+	<!--Body-->
+	<div class="modal-body mb-0">
+		<form class="form-inline pull-right" action="hocvien/save"
+			th:object="${hocvien}" th:action="@{/hocvien/save}" method="POST">
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="idhv"
+					class="form-control" th:field="*{mand}" /> <label for="nguoidang"
+					class="">ID</label>
+			</div>
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="ten"
+					class="form-control" th:field="*{ten}" /> <label for="ten"
+					class="">Last name</label>
+			</div>
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="hovatenlot"
+					class="form-control" th:field="*{hovatenlot}" /> <label
+					for="hovatenlot" class="">F name and M name</label>
+			</div>
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="phai"
+					class="form-control" th:field="*{phai}" /> <label for="phai"
+					class="">Sex</label>
+			</div>
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="ngaysinh"
+					class="form-control" th:field="*{ngaysinh}" /> <label for="ngaysinh"
+					class="">Date of birth</label>
+			</div>
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="diachi"
+					class="form-control" th:field="*{diachi}" /> <label for="diachi"
+					class="">Address</label>
+			</div>
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="cmnd"
+					class="form-control" th:field="*{cmnd}" /> <label for="cmnd"
+					class="">Identity card number</label>
+			</div>
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="email"
+					class="form-control" th:field="*{email}" /> <label for="email"
+					class="">Email</label>
+			</div>
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="matkhau"
+					class="form-control" th:field="*{matkhau}" /> <label for="matkhau"
+					class="">Password</label>
+			</div>
+				<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="hinh"
+					class="form-control" th:field="*{hinh}" /> <label for="hinh"
+					class="">Avatar</label>
+			</div>
+			<div class="md-form form-sm">
+				<i class="fa fa-tag prefix"></i> <input type="text" id="mota"
+					class="form-control" th:field="*{mota}" /> <label for="mota"
+					class="">Description</label>
+			</div>
+			<div class="text-center mt-1-half">
+				<button class="btn btn-info mb-2 waves-effect waves-light">
+					Save <i class="fa fa-send ml-1"></i>
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
+<script>
+	$(function() { //active label
+		if ($('.form-inline input').val() != "") {
+			$('label').each(function() {
+				$(this).addClass('active');
+			});
+		}
+
+		$('#ngaysinh').bootstrapMaterialDatePicker({
+			weekStart : 0
+		});
+	});
+</script>

@@ -18,10 +18,25 @@ body {
 	background-color: #2BBBAD !important;
 }
 
-.navbar:not (.top-nav-collapse ) {
-	background: #2BBBAD !important;
-}
+.navbar
+:not
+ 
+(
+.top-nav-collapse
+ 
+)
+{
+background
+:
+ 
+#2BBBAD
+ 
+!
+important
+;
 
+
+}
 .nav-pills .nav-item a.active:hover, .nav-pills .nav-item a:hover {
 	background-color: #2BBBAD;
 	border-left: 4px solid;
@@ -33,9 +48,26 @@ body {
 }
 
 @media ( max-width : 992px) {
-	.navbar:not (.top-nav-collapse ) {
-		background: #2BBBAD !important;
-	}
+	.navbar
+	:not
+	 
+	(
+	.top-nav-collapse
+	 
+	)
+	{
+	background
+	:
+	 
+	#2BBBAD
+	 
+	!
+	important
+	;
+	
+	
+}
+
 }
 
 /* === 10.SUBSCRIBE === */
@@ -353,4 +385,9 @@ body {
 .card .card-circle, .card-overlay, .section.team-section .avatar,
 	.testimonial-carousel .testimonial .avatar {
 	height: auto !important;
+}
+
+.testimonial-card .avatar {
+	height: 180px;
+	width: 180px;
 }

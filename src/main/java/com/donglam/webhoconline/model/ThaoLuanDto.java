@@ -8,12 +8,12 @@ public class ThaoLuanDto {
 
 	private String noidung;
 
-	private String matl;
+	private int matl;
 
 	public ThaoLuanDto() {
 	}
 
-	public ThaoLuanDto(KhoaHoc khoahoc, ThaoLuanId thaoluanid, String noidung, String matl) {
+	public ThaoLuanDto(KhoaHoc khoahoc, ThaoLuanId thaoluanid, String noidung, int matl) {
 		super();
 		this.khoahoc = khoahoc;
 		this.thaoluanid = thaoluanid;
@@ -45,11 +45,11 @@ public class ThaoLuanDto {
 		this.noidung = noidung;
 	}
 
-	public String getMatl() {
+	public int getMatl() {
 		return matl;
 	}
 
-	public void setMatl(String matl) {
+	public void setMatl(int matl) {
 		this.matl = matl;
 	}
 

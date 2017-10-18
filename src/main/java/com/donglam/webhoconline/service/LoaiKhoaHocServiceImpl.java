@@ -12,12 +12,12 @@ import com.donglam.webhoconline.dao.LoaiKhoaHocDao;
 import com.donglam.webhoconline.model.LoaiKhoaHoc;
 
 @Service
-public class LoaiKhoaHocServiceImpl extends GenericServiceImpl<LoaiKhoaHoc, Integer> implements LoaiKhoaHocService {
+public class LoaiKhoaHocServiceImpl extends GenericServiceImpl<LoaiKhoaHoc, String> implements LoaiKhoaHocService {
 	@Autowired
 	private LoaiKhoaHocDao dao;
 
 	@Autowired
-	public LoaiKhoaHocServiceImpl(GenericDao<LoaiKhoaHoc, Integer> genericDao) {
+	public LoaiKhoaHocServiceImpl(GenericDao<LoaiKhoaHoc, String> genericDao) {
 		super(genericDao);
 		this.dao = (LoaiKhoaHocDao) genericDao;
 	}

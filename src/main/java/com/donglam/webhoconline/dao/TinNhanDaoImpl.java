@@ -9,11 +9,11 @@ import com.donglam.webhoconline.model.TinNhan;
 
 @SuppressWarnings("unchecked")
 @Repository
-public class TinNhanDaoImpl extends GenericDaoImpl<TinNhan, String> implements TinNhanDao {
+public class TinNhanDaoImpl extends GenericDaoImpl<TinNhan, Integer> implements TinNhanDao {
 	// custom method
 	@Override
-	public List<TinNhan> getListByName(String tieude) {
-		Query query = currentSession().createQuery("from tinnhan where tinnhan.tieude =: tieude");
+	public List<TinNhan> getListByTieuDe(String tieude) {
+		Query query = currentSession().createQuery("from TinNhan tn where tn.tieude =: tieude");
 		query.setParameter("tieude", tieude);
 		return currentSession().createCriteria(daoType).list();
 	}

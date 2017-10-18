@@ -41,4 +41,5 @@ public class DanhGiaDto {
 	public void setNoidung(String noidung) {
 		this.noidung = noidung;
 	}
+
 }

@@ -15,24 +15,23 @@
 <!--<link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">-->
 <link href="css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="css/buttons.dataTables.min.css" rel="stylesheet" />
-<link href="css/editor.dataTables.min.css" rel="stylesheet" />
+<!-- <link href="css/editor.dataTables.min.css" rel="stylesheet" /> -->
 
 <!-- DataTables Responsive CSS -->
 <link href="css/dataTables.responsive.css" rel="stylesheet" />
 <!-- Custom CSS -->
 <link href="css/sb-admin-2.css" rel="stylesheet" />
-
-<link href="css/style.css" rel="stylesheet" />
-
-<link href="css/bootstrap-datepicker.standalone.min.css"
+<link href="css/icon.css" rel="stylesheet" th:href="@{/css/icon.css}"/>
+<link href="css/bootstrap-material-datetimepicker.css"
 	rel="stylesheet" />
 
 <link rel="stylesheet" href="css/jquery-jvectormap-2.0.3.css"
 	type="text/css" media="screen" />
-
+	
+<link href="css/style.css" rel="stylesheet" />
 <style type="text/css">
 select {
-	display: inline-block !important;
+	display: none !important;
 }
 </style>
 </head>
@@ -133,14 +132,15 @@ select {
 		<script src="js/buttons.colVis.min.js"></script>
 		<script src="js/dataTables.select.min.js"></script>
 
-		<script src="js/dataTables.editor.min.js"></script>
+<!-- 		<script src="js/dataTables.editor.min.js"></script> -->
 
 		<!--<script src="https://cdn.datatables.net/buttons/1.4.0/js/buttons.flash.min.js"></script>-->
 
 		<!--<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js"></script>-->
 		<script src="js/dataTables.responsive.min.js"></script>
 		<!--<script src="https://cdn.datatables.net/responsive/2.1.1/js/responsive.bootstrap4.min.js"></script>-->
-		<script type="text/javascript" src="js/bootstrap-datepicker.min.js"></script>
+		<script type="text/javascript" src="js/moment-with-locales.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap-material-datetimepicker.js"></script>
 
 		<script>
 			new WOW().init();
@@ -318,14 +318,6 @@ select {
 		</script>
 
 		<script>
-			// Data Picker Initialization
-			$('.datepicker').pickadate();
-
-			// Material Select Initialization
-			$(document).ready(function() {
-				$('.mdb-select').material_select();
-			});
-
 			// Sidenav Initialization
 			$(".button-collapse").sideNav();
 

@@ -1,7 +1,5 @@
 package com.donglam.webhoconline.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,11 +12,11 @@ public class GiaoTrinh {
 	@Column(name = "magt", nullable = false)
 	private String magt;
 
-	@Column(name = "tengt", nullable = false)
+	@Column(name = "tengt", nullable = true)
 	private String tengt;
 
-	@Column(name = "tgcapnhat", nullable = false)
-	private Date tgcapnhat;
+	@Column(name = "tgcapnhat", nullable = true)
+	private String tgcapnhat;
 
 	@Column(name = "makh", nullable = false)
 	private String makh;
@@ -29,7 +27,7 @@ public class GiaoTrinh {
 	public GiaoTrinh() {
 	}
 
-	public GiaoTrinh(String magt, String tengt, Date tgcapnhat, String makh, String magv) {
+	public GiaoTrinh(String magt, String tengt, String tgcapnhat, String makh, String magv) {
 		super();
 		this.magt = magt;
 		this.tengt = tengt;
@@ -54,11 +52,11 @@ public class GiaoTrinh {
 		this.tengt = tengt;
 	}
 
-	public Date getTgcapnhat() {
+	public String getTgcapnhat() {
 		return tgcapnhat;
 	}
 
-	public void setTgcapnhat(Date tgcapnhat) {
+	public void setTgcapnhat(String tgcapnhat) {
 		this.tgcapnhat = tgcapnhat;
 	}
 
@@ -77,5 +75,5 @@ public class GiaoTrinh {
 	public void setMagv(String magv) {
 		this.magv = magv;
 	}
-
+	
 }

@@ -30,7 +30,7 @@
 				<div class="card-data">
 					<ul class="list-unstyled">
 						<li class="comment-date"><i class="fa fa-clock-o"></i> <span
-							th:text="${#dates.format(qtl.thaoluanid.tgdang, 'dd/MM/yyyy HH:mm:ss')}"
+							th:text="${qtl.thaoluanid.tgdang}"
 							th:remove="tag">thoi gian dang</span></li>
 					</ul>
 				</div>
@@ -61,7 +61,7 @@
 					<div class="card-data">
 						<ul class="list-unstyled">
 							<li class="comment-date"><i class="fa fa-clock-o"></i> <span
-								th:text="${#dates.format(tl.thaoluanid.tgdang, 'dd/MM/yyyy HH:mm:ss')}"
+								th:text="${tl.thaoluanid.tgdang}"
 								th:remove="tag"> thoi gian dang</span></li>
 						</ul>
 					</div>

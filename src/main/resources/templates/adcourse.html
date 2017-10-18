@@ -14,7 +14,6 @@
 						học</h1>
 					<!--Grid column-->
 					<div class="mb-r">
-
 						<!-- Nav tabs -->
 						<ul class="nav nav-tabs nav-justified" role="tablist">
 							<li class="nav-item"><a class="nav-link active"
@@ -59,9 +58,7 @@
 										<tr th:each="k,i : ${dskhoa}" class="odd gradeX">
 											<td th:text="${k.makhoa}">Trident</td>
 											<td th:text="${k.tenkhoa}">Internet Explorer 4.0</td>
-
 										</tr>
-
 									</tbody>
 								</table>
 							</div>
@@ -70,14 +67,18 @@
 							<div class="tab-pane fade" id="panel6" role="tabpanel">
 								<br />
 								<div class="rowbtn">
-									<a class="btn btn-sm btn-success" data-target=".modal"
-										data-toggle="modal" href="loginregister"><i
-										class="fa fa-plus mr-1"></i>Add</a> <a class="btn btn-sm btn-info"
-										data-target=".modal" data-toggle="modal" href="loginregister"><i
-										class="fa fa-magic mr-1"></i>Edit</a> <a
-										class="btn btn-sm btn-danger" data-target=".modal"
-										data-toggle="modal" href="loginregister"><i
-										class="fa fa-trash mr-1"></i>Delete</a>
+									<button class="btn btn-sm btn-success" data-target=".modal"
+										data-toggle="modal" href="loaikh/create">
+										<i class="fa fa-plus mr-1"></i>Add
+									</button>
+									<button disabled="disabled" class="btn btn-sm btn-warning"
+										data-target=".modal" data-toggle="modal" id="editloaikh">
+										<i class="fa fa-magic mr-1"></i>Edit
+									</button>
+									<button disabled="disabled" class="btn btn-sm btn-danger"
+										data-target=".modal" data-toggle="modal" id="deleteloaikh">
+										<i class="fa fa-trash mr-1"></i>Delete
+									</button>
 								</div>
 								<table width="100%" cellspacing="0"
 									class="table table-hover responsive nowrap" id="tbloaikh">
@@ -89,12 +90,11 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr th:each="k,i : ${dsloaikh}" class="odd gradeX">
-											<td th:text="${k.maloaikh}">Trident</td>
-											<td th:text="${k.makhoa}">Internet Explorer 4.0</td>
-											<td th:text="${k.tenloaikh}">Win 95+</td>
+										<tr th:each="lkh,i : ${dsloaikh}" class="odd gradeX">
+											<td th:text="${lkh.maloaikh}">Trident</td>
+											<td th:text="${lkh.khoa.makhoa}">Internet Explorer 4.0</td>
+											<td th:text="${lkh.tenloaikh}">Win 95+</td>
 										</tr>
-
 									</tbody>
 								</table>
 							</div>
@@ -103,51 +103,53 @@
 							<div class="tab-pane fade" id="panel7" role="tabpanel">
 								<br />
 								<div class="rowbtn">
-									<a class="btn btn-sm btn-success" data-target=".modal"
-										data-toggle="modal" href="loginregister"><i
-										class="fa fa-plus mr-1"></i>Add</a> <a class="btn btn-sm btn-info"
-										data-target=".modal" data-toggle="modal" href="loginregister"><i
-										class="fa fa-magic mr-1"></i>Edit</a> <a
-										class="btn btn-sm btn-danger" data-target=".modal"
-										data-toggle="modal" href="loginregister"><i
-										class="fa fa-trash mr-1"></i>Delete</a>
+									<button class="btn btn-sm btn-success" data-target=".modal"
+										data-toggle="modal" href="khoahoc/create">
+										<i class="fa fa-plus mr-1"></i>Add
+									</button>
+									<button disabled="disabled" class="btn btn-sm btn-warning"
+										data-target=".modal" data-toggle="modal" id="editkh">
+										<i class="fa fa-magic mr-1"></i>Edit
+									</button>
+									<button disabled="disabled" class="btn btn-sm btn-danger"
+										data-target=".modal" data-toggle="modal" id="deletekh">
+										<i class="fa fa-trash mr-1"></i>Delete
+									</button>
 								</div>
 								<table width="100%" cellspacing="0"
 									class="table table-hover responsive nowrap" id="tbkh">
 									<thead>
 										<tr>
 											<th class="rgba-teal-strong">Mã KH</th>
-											<th class="rgba-teal-strong">Mã Khoa</th>
 											<th class="rgba-teal-strong">Tên KH</th>
 											<th class="rgba-teal-strong">Mã LKH</th>
-											<th class="rgba-teal-strong">Mô tả</th>
-											<th class="rgba-teal-strong">Đã duyệt</th>
-											<th class="rgba-teal-strong">Giờ BD học</th>
-											<th class="rgba-teal-strong">Giờ KT học</th>
-											<th class="rgba-teal-strong">TG BD học</th>
+											<th class="rgba-teal-strong">Giờ bắt đầu</th>
+											<th class="rgba-teal-strong">Giờ kết thúc</th>
+											<th class="rgba-teal-strong">TG BĐ học</th>
 											<th class="rgba-teal-strong">TG KT học</th>
-											<th class="rgba-teal-strong">TG BD DKí</th>
-											<th class="rgba-teal-strong">TG KT DKí</th>
+											<th class="rgba-teal-strong">TG BĐ ĐKí</th>
+											<th class="rgba-teal-strong">TG KT ĐKí</th>
 											<th class="rgba-teal-strong">Học phí</th>
+											<th class="rgba-teal-strong">Mô tả</th>
 											<th class="rgba-teal-strong">Hình</th>
+											<th class="rgba-teal-strong">Đã duyệt</th>	
 										</tr>
 									</thead>
 									<tbody>
-										<tr th:each="k,i : ${dskh}" class="odd gradeX">
-											<td th:text="${k.makh}">Trident</td>
-											<td th:text="${k.makhoa}">Trident</td>
-											<td th:text="${k.tenkh}">Internet Explorer 4.0</td>
-											<td th:text="${k.maloaikh}">Win 95+</td>
-											<td th:text="${k.mota}">Trident</td>
-											<td th:text="${k.daduyet}">Internet Explorer 4.0</td>
-											<td th:text="${k.giobd}">Win 95+</td>
-											<td th:text="${k.giokt}">Trident</td>
-											<td th:text="${k.tgbdhoc}">Internet Explorer 4.0</td>
-											<td th:text="${k.tgkthoc}">Internet Explorer 4.0</td>
-											<td th:text="${k.tgbddk}">Win 95+</td>
-											<td th:text="${k.tgktdk}">Win 95+</td>
-											<td th:text="${k.hocphi}">Win 95+</td>
-											<td th:text="${k.hinh}">Win 95+</td>
+										<tr th:each="kh,i : ${dskh}" class="odd gradeX">
+											<td th:text="${kh.makh}">Trident</td>
+											<td th:text="${kh.tenkh}">Internet Explorer 4.0</td>
+											<td th:text="${kh.loaikhoahoc.maloaikh}">Win 95+</td>
+											<td th:text="${kh.giobd}">Win 95+</td>
+											<td th:text="${kh.giokt}">Trident</td>
+											<td th:text="${kh.tgbdhoc}">Internet Explorer 4.0</td>
+											<td th:text="${kh.tgkthoc}">Internet Explorer 4.0</td>
+											<td th:text="${kh.tgbddk}">Win 95+</td>
+											<td th:text="${kh.tgktdk}">Win 95+</td>
+											<td th:text="${#numbers.formatDecimal(kh.hocphi, 0, 'COMMA', 2, 'POINT')}">Win 95+</td>
+											<td th:text="${kh.mota}">Trident</td>
+											<td th:text="${kh.hinh}">Win 95+</td>
+											<td th:text="${kh.daduyet}">Internet Explorer 4.0</td>
 										</tr>
 									</tbody>
 								</table>
@@ -166,18 +168,15 @@
 	<script>
 		// Material Select Initialization		
 		$(document).ready(
-				
 				function() {
 					//message alert
-					var m=$('#message').val();
-					if(m!=""){
-						   toastr["success"](m);
+					var m = $('#message').val();
+					if (m != "") {
+						toastr["success"](m);
 					}
 					//
 					$('.mdb-select').material_select();
-					$('#datepicker').datepicker({
-						format : "dd/mm/yyyy"
-					});
+					
 					// SideNav Initialization
 					$(".button-collapse").sideNav();
 					/*Menu-toggle*/
@@ -215,44 +214,6 @@
 											}).deselect();
 											config.counter = true;
 										}
-
-									}
-								}, {
-									extend : 'colvis',
-									collectionLayout : 'fixed two-column'
-								} ]
-							});
-					//Table
-					var tbkh = $('#tbkh').DataTable(
-							{
-								dom : 'Bfrtip',
-								select : {
-									style : 'multi',
-									selector : 'td:first-child'
-								},
-								lengthMenu : [
-										[ 10, 25, 50, -1 ],
-										[ '10 rows', '25 rows', '50 rows',
-												'Show all' ] ],
-								buttons : [ 'pageLength', {
-									text : 'Select All',
-									className : '',
-									counter : true,
-									action : function(e, dt, node, config) {
-										if (config.counter) {
-											this.text('Select None');
-											tbkh.rows({
-												page : 'current'
-											}).select();
-											config.counter = false;
-										} else {
-											this.text('Select All');
-											tbkh.rows({
-												page : 'current'
-											}).deselect();
-											config.counter = true;
-										}
-
 									}
 								}, {
 									extend : 'colvis',
@@ -264,8 +225,8 @@
 							{
 								dom : 'Bfrtip',
 								select : {
-									style : 'multi',
-									selector : 'td:first-child'
+									style : 'single' //'multi',
+								// selector : 'td:first-child'
 								},
 								lengthMenu : [
 										[ 10, 25, 50, -1 ],
@@ -289,49 +250,160 @@
 											}).deselect();
 											config.counter = true;
 										}
-
 									}
 								}, {
 									extend : 'colvis',
 									collectionLayout : 'fixed two-column'
 								} ]
 							});
+					//Table
+					var tbkh = $('#tbkh').DataTable(
+							{
+								dom : 'Bfrtip',
+								select : {
+									style : 'single' //'multi',
+								// selector : 'td:first-child'
+								},
+								lengthMenu : [
+										[ 10, 25, 50, -1 ],
+										[ '10 rows', '25 rows', '50 rows',
+												'Show all' ] ],
+								buttons : [ 'pageLength', {
+									text : 'Select All',
+									className : '',
+									counter : true,
+									action : function(e, dt, node, config) {
+										if (config.counter) {
+											this.text('Select None');
+											tbkh.rows({
+												page : 'current'
+											}).select();
+											config.counter = false;
+										} else {
+											this.text('Select All');
+											tbkh.rows({
+												page : 'current'
+											}).deselect();
+											config.counter = true;
+										}
+									}
+								}, {
+									extend : 'colvis',
+									collectionLayout : 'fixed two-column'
+								} ]
+							});
+					
 					/* if ( tbkhoa.rows( '.selected' ).any() ){
 						$('#editkhoa').removeAttr("disabled");
 					}else{
 						$('#editkhoa').attr('disabled', 'disabled');
 					} */
+
 					//btn
+					////////////////////////////// KHOA /////////////////////////////////////
 					var idkhoa;
 					$('#tbkhoa tbody').on('click', 'tr', function() {
-
 						if ($(this).hasClass('selected')) { //da chon roi thi ko chon nua
 							$('#editkhoa').removeAttr("disabled");
 							$('#deletekhoa').removeAttr("disabled");
 							$(this).removeClass('selected');
 							idkhoa = tbkhoa.row($(this)).data();
-
 						} else {
 							$('#editkhoa').attr('disabled', 'disabled');
 							$('#deletekhoa').attr('disabled', 'disabled');
 							table.$('tr.selected').removeClass('selected');
 							$(this).addClass('selected');
-
 						}
 					});
 					$('#editkhoa').click(function() {
-						$(this).attr('href','khoa/'+idkhoa[0]+'/edit');
+						$(this).attr('href', 'khoa/' + idkhoa[0] + '/edit');
 					});
-					$('#deletekhoa').click(function() {
-						$(this).attr('href','isdelete');
-						setTimeout( //waiting
-								  function() 
-								  {
-									  $('#titledelete').html('Are you sure delete '+ idkhoa[0]);
-									  $('#yesdelete').attr('href','khoa/'+idkhoa[0]+'/delete');
-								  }, 100);
+					$('#deletekhoa').click(
+							function() {
+								$(this).attr('href', 'isdelete');
+								setTimeout(
+										//waiting
+										function() {
+											$('#titledelete').html(
+													'Are you sure delete '
+															+ idkhoa[0]);
+											$('#yesdelete').attr(
+													'href',
+													'khoa/' + idkhoa[0]
+															+ '/delete');
+										}, 100);
+							});
+
+					/////////////////////////////LOAI KHOA HOC ////////////////////////////////////
+					var idloaikh;
+					$('#tbloaikh tbody').on('click', 'tr', function() {
+						if ($(this).hasClass('selected')) { //da chon roi thi ko chon nua
+							$('#editloaikh').removeAttr("disabled");
+							$('#deleteloaikh').removeAttr("disabled");
+							$(this).removeClass('selected');
+							idloaikh = tbloaikh.row($(this)).data();
+						} else {
+							$('#editloaikh').attr('disabled', 'disabled');
+							$('#deleteloaikh').attr('disabled', 'disabled');
+							table.$('tr.selected').removeClass('selected');
+							$(this).addClass('selected');
+						}
 					});
-					
+					$('#editloaikh').click(
+							function() {
+								$(this).attr('href',
+										'loaikh/' + idloaikh[0] + '/edit');
+							});
+					$('#deleteloaikh').click(
+							function() {
+								$(this).attr('href', 'isdelete');
+								setTimeout(
+								//waiting
+								function() {
+									$('#titledelete').html(
+											'Are you sure delete '
+													+ idloaikh[0]);
+									$('#yesdelete')
+											.attr(
+													'href',
+													'loaikh/' + idloaikh[0]
+															+ '/delete');
+								}, 100);
+							});
+
+					///////////////////////////// KHOA HOC ////////////////////////////////////
+					var idkh;
+					$('#tbkh tbody').on('click', 'tr', function() {
+						if ($(this).hasClass('selected')) { //da chon roi thi ko chon nua
+							$('#editkh').removeAttr("disabled");
+							$('#deletekh').removeAttr("disabled");
+							$(this).removeClass('selected');
+							idkh = tbkh.row($(this)).data();
+						} else {
+							$('#editkh').attr('disabled', 'disabled');
+							$('#deletekh').attr('disabled', 'disabled');
+							table.$('tr.selected').removeClass('selected');
+							$(this).addClass('selected');
+						}
+					});
+					$('#editkh').click(function() {
+						$(this).attr('href', 'khoahoc/' + idkh[0] + '/edit');
+					});
+					$('#deletekh').click(
+							function() {
+								$(this).attr('href', 'isdelete');
+								setTimeout(
+										//waiting
+										function() {
+											$('#titledelete').html(
+													'Are you sure delete '
+															+ idkh[0]);
+											$('#yesdelete').attr(
+													'href',
+													'khoahoc/' + idkh[0]
+															+ '/delete');
+										}, 100);
+							});
 				});
 	</script>
 </body>

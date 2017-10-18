@@ -1,14 +1,12 @@
 package com.donglam.webhoconline.model;
 
-import java.util.Date;
-
 public class GiaoTrinhDto {
 
 	private String magt;
 
 	private String tengt;
 
-	private Date tgcapnhat;
+	private String tgcapnhat;
 
 	private String makh;
 
@@ -17,7 +15,7 @@ public class GiaoTrinhDto {
 	public GiaoTrinhDto() {
 	}
 
-	public GiaoTrinhDto(String magt, String tengt, Date tgcapnhat, String makh, String magv) {
+	public GiaoTrinhDto(String magt, String tengt, String tgcapnhat, String makh, String magv) {
 		super();
 		this.magt = magt;
 		this.tengt = tengt;
@@ -42,11 +40,11 @@ public class GiaoTrinhDto {
 		this.tengt = tengt;
 	}
 
-	public Date getTgcapnhat() {
+	public String getTgcapnhat() {
 		return tgcapnhat;
 	}
 
-	public void setTgcapnhat(Date tgcapnhat) {
+	public void setTgcapnhat(String tgcapnhat) {
 		this.tgcapnhat = tgcapnhat;
 	}
 
@@ -65,5 +63,5 @@ public class GiaoTrinhDto {
 	public void setMagv(String magv) {
 		this.magv = magv;
 	}
-
+	
 }

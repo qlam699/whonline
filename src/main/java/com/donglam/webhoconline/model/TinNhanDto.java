@@ -1,21 +1,19 @@
 package com.donglam.webhoconline.model;
 
-import java.util.Date;
-
 public class TinNhanDto {
 
 	private int matn;
 
 	private String tieude;
 
-	private Date tggui;
+	private String tggui;
 
 	private String noidung;
 
 	public TinNhanDto() {
 	}
 
-	public TinNhanDto(int matn, String tieude, Date tggui, String noidung) {
+	public TinNhanDto(int matn, String tieude, String tggui, String noidung) {
 		super();
 		this.matn = matn;
 		this.tieude = tieude;
@@ -39,11 +37,11 @@ public class TinNhanDto {
 		this.tieude = tieude;
 	}
 
-	public Date getTggui() {
+	public String getTggui() {
 		return tggui;
 	}
 
-	public void setTggui(Date tggui) {
+	public void setTggui(String tggui) {
 		this.tggui = tggui;
 	}
 
